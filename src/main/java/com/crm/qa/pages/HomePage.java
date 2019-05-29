@@ -36,6 +36,8 @@ public String verifyHomePageTitle(){
 }
 public ContactsPage clickOnContactsLink(){//change the mathod name from void to 
 	//ContactPAge becasue its returning ContactsPage
+	
+	
 	contactsLink.click();
 	return new ContactsPage();//return new contacts page obejct
 }
