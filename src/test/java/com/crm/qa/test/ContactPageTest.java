@@ -3,6 +3,7 @@ package com.crm.qa.test;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 import com.crm.qa.base.TestBase;
@@ -17,6 +18,7 @@ public class ContactPageTest extends TestBase {
 	HomePage homePage;
 	TestUtil testUtil;
 	ContactsPage contactsPage;
+	String sheetName = "";
 	
 	public ContactPageTest(){
 		super();
@@ -24,7 +26,7 @@ public class ContactPageTest extends TestBase {
 	@BeforeMethod
 	public void setup(){
 		initializaton();
-		testUtil = new TestUtil();
+		TestUtil	testUtil = new TestUtil();
 		contactsPage =new ContactsPage();
 		loginPage = new LoginPage();
 		homePage =loginPage.Login(prop.getProperty("username"), prop.getProperty("password"));
@@ -38,9 +40,24 @@ public class ContactPageTest extends TestBase {
 	}
 	
 	@Test(priority =2)
-	public void selectContactTest(){
+	public void selectMultipleContactTest(){
 		contactsPage.selectContactsByName("test2 test2");
 		contactsPage.selectContactsByName("ui uiii");
+	}
+	
+	@DataProvider
+	public Object[][] getCRMTestData(){//since its returning 2 object array
+	Object data [][]=	testUtil.getTestData(sheetName);
+	return data;
+	}
+	
+	
+	
+	@Test(priority =4,dataProvider="getCRMTestData")
+	public void validateCreateNewContact(String title, String firstName, String lastName, String company){
+		homePage.clickOnNewContactLink();
+	//	contactsPage.createNewContact("Mr", "Tom", "peter", "Google");
+		contactsPage.createNewContact(title, firstName, lastName, company);
 	}
 	
 	

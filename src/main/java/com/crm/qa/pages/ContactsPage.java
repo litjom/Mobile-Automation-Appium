@@ -2,6 +2,7 @@ package com.crm.qa.pages;
 
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
@@ -11,6 +12,9 @@ import com.crm.qa.base.TestBase;
 public class ContactsPage extends TestBase {
 
 	@FindBy(xpath = "//td[contains(text(),'Contacts')]")
+	@CacheLookup
+	//cachelookup is to store the element in the memory or cache memory
+	//instead of taking the element locator from HTML- MORE FASTER
 	WebElement contactsLabel;
 	
 	@FindBy(id="first_name")
