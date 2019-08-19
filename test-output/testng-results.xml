@@ -1,68 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testng-results skipped="0" failed="1" total="1" passed="0">
+<testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="10005" started-at="2019-07-03T04:23:02Z" finished-at="2019-07-03T04:23:12Z">
+  <suite name="Default suite" duration-ms="271710" started-at="2019-08-16T21:15:13Z" finished-at="2019-08-16T21:19:45Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="10005" started-at="2019-07-03T04:23:02Z" finished-at="2019-07-03T04:23:12Z">
-      <class name="tests.LoginPageTest">
-        <test-method status="PASS" signature="setup()[pri:0, instance:tests.LoginPageTest@39c0f4a]" name="setup" is-config="true" duration-ms="9646" started-at="2019-07-03T00:23:02Z" finished-at="2019-07-03T00:23:12Z">
+    <test name="Default test" duration-ms="271710" started-at="2019-08-16T21:15:13Z" finished-at="2019-08-16T21:19:45Z">
+      <class name="com.CoA.qa.TestCases.JobPageTest">
+        <test-method status="PASS" signature="setup()[pri:0, instance:com.CoA.qa.TestCases.JobPageTest@6e1ec318]" name="setup" is-config="true" duration-ms="93588" started-at="2019-08-16T17:15:13Z" finished-at="2019-08-16T17:16:47Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method status="FAIL" signature="VerizonlogoTest()[pri:0, instance:tests.LoginPageTest@39c0f4a]" name="VerizonlogoTest" duration-ms="22" started-at="2019-07-03T00:23:12Z" finished-at="2019-07-03T00:23:12Z">
-          <exception class="java.lang.IllegalArgumentException">
-            <message>
-              <![CDATA[Can not set io.appium.java_client.MobileElement field pages.LoginPage.agree to com.sun.proxy.$Proxy9]]>
-            </message>
-            <full-stacktrace>
-              <![CDATA[java.lang.IllegalArgumentException: Can not set io.appium.java_client.MobileElement field pages.LoginPage.agree to com.sun.proxy.$Proxy9
-	at sun.reflect.UnsafeFieldAccessorImpl.throwSetIllegalArgumentException(Unknown Source)
-	at sun.reflect.UnsafeFieldAccessorImpl.throwSetIllegalArgumentException(Unknown Source)
-	at sun.reflect.UnsafeObjectFieldAccessorImpl.set(Unknown Source)
-	at java.lang.reflect.Field.set(Unknown Source)
-	at org.openqa.selenium.support.PageFactory.proxyFields(PageFactory.java:117)
-	at org.openqa.selenium.support.PageFactory.initElements(PageFactory.java:105)
-	at org.openqa.selenium.support.PageFactory.initElements(PageFactory.java:92)
-	at org.openqa.selenium.support.PageFactory.initElements(PageFactory.java:79)
-	at org.openqa.selenium.support.PageFactory.initElements(PageFactory.java:65)
-	at tests.LoginPageTest.VerizonlogoTest(LoginPageTest.java:40)
-	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
-	at sun.reflect.NativeMethodAccessorImpl.invoke(Unknown Source)
-	at sun.reflect.DelegatingMethodAccessorImpl.invoke(Unknown Source)
-	at java.lang.reflect.Method.invoke(Unknown Source)
-	at org.testng.internal.MethodInvocationHelper.invokeMethod(MethodInvocationHelper.java:80)
-	at org.testng.internal.Invoker.invokeMethod(Invoker.java:714)
-	at org.testng.internal.Invoker.invokeTestMethod(Invoker.java:901)
-	at org.testng.internal.Invoker.invokeTestMethods(Invoker.java:1231)
-	at org.testng.internal.TestMethodWorker.invokeTestMethods(TestMethodWorker.java:127)
-	at org.testng.internal.TestMethodWorker.run(TestMethodWorker.java:111)
-	at org.testng.TestRunner.privateRun(TestRunner.java:767)
-	at org.testng.TestRunner.run(TestRunner.java:617)
-	at org.testng.SuiteRunner.runTest(SuiteRunner.java:334)
-	at org.testng.SuiteRunner.runSequentially(SuiteRunner.java:329)
-	at org.testng.SuiteRunner.privateRun(SuiteRunner.java:291)
-	at org.testng.SuiteRunner.run(SuiteRunner.java:240)
-	at org.testng.SuiteRunnerWorker.runSuite(SuiteRunnerWorker.java:52)
-	at org.testng.SuiteRunnerWorker.run(SuiteRunnerWorker.java:86)
-	at org.testng.TestNG.runSuitesSequentially(TestNG.java:1198)
-	at org.testng.TestNG.runSuitesLocally(TestNG.java:1123)
-	at org.testng.TestNG.run(TestNG.java:1031)
-	at org.testng.remote.AbstractRemoteTestNG.run(AbstractRemoteTestNG.java:114)
-	at org.testng.remote.RemoteTestNG.initAndRun(RemoteTestNG.java:251)
-	at org.testng.remote.RemoteTestNG.main(RemoteTestNG.java:77)
-]]>
-            </full-stacktrace>
-          </exception> <!-- java.lang.IllegalArgumentException -->
+        <test-method status="PASS" signature="ServiceandTimeStampTest()[pri:0, instance:com.CoA.qa.TestCases.JobPageTest@6e1ec318]" name="ServiceandTimeStampTest" duration-ms="176627" started-at="2019-08-16T17:16:47Z" finished-at="2019-08-16T17:19:43Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- VerizonlogoTest -->
-        <test-method status="PASS" signature="teardown()[pri:0, instance:tests.LoginPageTest@39c0f4a]" name="teardown" is-config="true" duration-ms="323" started-at="2019-07-03T00:23:12Z" finished-at="2019-07-03T00:23:12Z">
+        </test-method> <!-- ServiceandTimeStampTest -->
+        <test-method status="PASS" signature="teardown()[pri:0, instance:com.CoA.qa.TestCases.JobPageTest@6e1ec318]" name="teardown" is-config="true" duration-ms="1482" started-at="2019-08-16T17:19:43Z" finished-at="2019-08-16T17:19:45Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- teardown -->
-      </class> <!-- tests.LoginPageTest -->
+      </class> <!-- com.CoA.qa.TestCases.JobPageTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>

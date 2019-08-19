@@ -3,13 +3,13 @@
 <suite name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="tests.LoginPageTest">
+      <class name="com.CoA.qa.TestCases.JobPageTest">
         <methods>
+          <include name="ServiceandTimeStampTest"/>
           <include name="teardown"/>
           <include name="setup"/>
-          <include name="VerizonlogoTest"/>
         </methods>
-      </class> <!-- tests.LoginPageTest -->
+      </class> <!-- com.CoA.qa.TestCases.JobPageTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

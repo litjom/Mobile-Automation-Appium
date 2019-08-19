@@ -1,0 +1,108 @@
+{
+
+ "Login":{
+ 
+     "UserID":"jomonli",
+     "Password":"Brownlenovo5@"
+ 
+},
+
+ "Common Quick Summary":{
+ 
+     "JobID":"N916615790",
+     "MON":"FLII6615790",
+     "Customer Name":"VIRTUAL",
+     "Circuit ID [Data Line- 1]":"30/LCXA/804762 /VZFL",
+     "Access Window":"10:00 - 11:00",
+     "Address":"1700 E 9TH AVE TAMPA FL 33605 Job Map   Nav",
+     "Sub Location":"",
+     "Due Date":"07/11/2019 00:00",
+     "Dispatch ID":"2045969784_1561574437029",
+     "TSP":"__",
+     "Scheduled Start":"7/11/2019 10:00",
+     "Activity":"FBI Install",
+     "Step Code":"ILC",
+     "Expedite":"N",
+     "Site":"FL",
+     "CSite":"TAMAFL07",
+     "Alert":"false"
+},
+
+"Common Customer & Contact Information":{
+"Customer Name 2":"VIRTUAL",
+"Address 2":"1700 E 9TH AVE TAMPA FL 33605"
+},
+
+"Common Primary Contact":{
+"Name":"VIRTUAL,TESTING",
+"Phone Number":"813-693-7018",
+"Fax Number":"-",
+"Email Address":"pranavi.vangala@one.verizon.com",
+"Cell Number":"813-693-7018",
+"Primary LCON On Site":"--"
+},
+"Common Alternate Contact":{
+"Name":"VIRTUAL,TESTING",
+"Phone Number":"-",
+"Fax Number":"-"
+},
+
+
+
+"Common Service & Time Stamp":{
+"Appointment Start Date":"07/11/2019 10:00",
+"Appointment Stop Date":"07/11/2019 11:00",
+"Acknowledge Date":"06/26/2019 14:45",
+"Activity Due Date":"07/11/2019 00:00",
+"Actual Start Date":"",
+"Actual Stop Date":"",
+"Arrival Date":"",
+"Create Date":"06/26/2019 14:40",
+"Customer Commit Date":"07/11/2019 00:00",
+"Customer Request Date":"",
+"Departure Date":"",
+"Deferred Expiry Date":"",
+"Inroute Date":"07/12/2019 16:25",
+"Last Updated Date":"",
+"Received Date":"08/16/2019 14:13",
+"Restore Date":"0001-01-01T00:00:00+00:00",
+"Scheduled Start2":"07/11/2019 10:00",
+"Scheduled Stop2":"07/11/2019 11:00",
+"SCIS":"--",
+"Bus Segment":"OneNet",
+"Travel Time":"--",
+"Updated By":"--",
+"Expedite":"",
+"Dispatcher":"Tablet:jomonli",
+"Service Ticket Number":"N",
+"Service Type":"vangapr",
+"Source Prov System Name":"ICOG916615790",
+"Status Reason":"Data",
+"Bill Type":"IVAPP",
+"Travel Miles":"SRCCANCEL",
+"Firm":"Billable:MAC"
+
+},
+
+
+"Services Distribution":{
+
+"Feeder Fiber Name":"FEDUUI01",
+"Feeder Fbr Strand #":"1",
+"Distribution Fiber Name":"FWY5225",
+"Distribution Fiber Strand":"53",
+"Splitter Hub Name":"FWY5225",
+"Splitter Hub Port#":"53",
+"Splitter Hub Address":"TAMPA ST",
+"Splitter Hub GPS Lat/Long":"-82.353544,28.1702099",
+"Splitter #":"FWY5225A",
+"Splitter Port #":"6",
+"X-con Splitter Port":"6",
+"X-con Action":"Make",
+"X-con Hub Port":"53",
+"Wavelength":"1596.34NM",
+"Bonded":"N"
+}
+
+
+}
