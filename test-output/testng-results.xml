@@ -2,20 +2,20 @@
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="271710" started-at="2019-08-16T21:15:13Z" finished-at="2019-08-16T21:19:45Z">
+  <suite name="Default suite" duration-ms="93434" started-at="2019-09-24T20:24:03Z" finished-at="2019-09-24T20:25:36Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="271710" started-at="2019-08-16T21:15:13Z" finished-at="2019-08-16T21:19:45Z">
+    <test name="Default test" duration-ms="93434" started-at="2019-09-24T20:24:03Z" finished-at="2019-09-24T20:25:36Z">
       <class name="com.CoA.qa.TestCases.JobPageTest">
-        <test-method status="PASS" signature="setup()[pri:0, instance:com.CoA.qa.TestCases.JobPageTest@6e1ec318]" name="setup" is-config="true" duration-ms="93588" started-at="2019-08-16T17:15:13Z" finished-at="2019-08-16T17:16:47Z">
+        <test-method status="PASS" signature="setup()[pri:0, instance:com.CoA.qa.TestCases.JobPageTest@6e1ec318]" name="setup" is-config="true" duration-ms="74609" started-at="2019-09-24T16:24:03Z" finished-at="2019-09-24T16:25:18Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method status="PASS" signature="ServiceandTimeStampTest()[pri:0, instance:com.CoA.qa.TestCases.JobPageTest@6e1ec318]" name="ServiceandTimeStampTest" duration-ms="176627" started-at="2019-08-16T17:16:47Z" finished-at="2019-08-16T17:19:43Z">
+        <test-method status="PASS" signature="Equipment()[pri:0, instance:com.CoA.qa.TestCases.JobPageTest@6e1ec318]" name="Equipment" duration-ms="17915" started-at="2019-09-24T16:25:18Z" finished-at="2019-09-24T16:25:35Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- ServiceandTimeStampTest -->
-        <test-method status="PASS" signature="teardown()[pri:0, instance:com.CoA.qa.TestCases.JobPageTest@6e1ec318]" name="teardown" is-config="true" duration-ms="1482" started-at="2019-08-16T17:19:43Z" finished-at="2019-08-16T17:19:45Z">
+        </test-method> <!-- Equipment -->
+        <test-method status="PASS" signature="teardown()[pri:0, instance:com.CoA.qa.TestCases.JobPageTest@6e1ec318]" name="teardown" is-config="true" duration-ms="898" started-at="2019-09-24T16:25:35Z" finished-at="2019-09-24T16:25:36Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- teardown -->

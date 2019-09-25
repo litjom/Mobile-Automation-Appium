@@ -20,7 +20,7 @@
      "Dispatch ID":"2045969784_1561574437029",
      "TSP":"__",
      "Scheduled Start":"7/11/2019 10:00",
-     "Activity":"FBI Install",
+     "Activity":"Fiber Internet Install",
      "Step Code":"ILC",
      "Expedite":"N",
      "Site":"FL",
@@ -30,7 +30,7 @@
 
 "Common Customer & Contact Information":{
 "Customer Name 2":"VIRTUAL",
-"Address 2":"1700 E 9TH AVE TAMPA FL 33605"
+"Address 2":"1700 E 9TH AVE TAMPA FL 33605 Job Map   Nav"
 },
 
 "Common Primary Contact":{
@@ -43,7 +43,7 @@
 },
 "Common Alternate Contact":{
 "Name":"VIRTUAL,TESTING",
-"Phone Number":"-",
+"Phone Number":"813-693-7018",
 "Fax Number":"-"
 },
 
@@ -51,7 +51,7 @@
 
 "Common Service & Time Stamp":{
 "Appointment Start Date":"07/11/2019 10:00",
-"Appointment Stop Date":"07/11/2019 11:00",
+"Appointment Stop Date":"06/26/2019 14:45",
 "Acknowledge Date":"06/26/2019 14:45",
 "Activity Due Date":"07/11/2019 00:00",
 "Actual Start Date":"",
@@ -64,7 +64,7 @@
 "Deferred Expiry Date":"",
 "Inroute Date":"07/12/2019 16:25",
 "Last Updated Date":"",
-"Received Date":"08/16/2019 14:13",
+"Received Date":"08/19/2019 14:37",
 "Restore Date":"0001-01-01T00:00:00+00:00",
 "Scheduled Start2":"07/11/2019 10:00",
 "Scheduled Stop2":"07/11/2019 11:00",
@@ -80,7 +80,7 @@
 "Status Reason":"Data",
 "Bill Type":"IVAPP",
 "Travel Miles":"SRCCANCEL",
-"Firm":"Billable:MAC"
+"Firm":"Billable: MAC"
 
 },
 
@@ -102,6 +102,41 @@
 "X-con Hub Port":"53",
 "Wavelength":"1596.34NM",
 "Bonded":"N"
+},
+
+"Services Drop Terminal":{
+"Drop Terminal Name":"HUB1120743",
+"Drop Terminal Port":"5",
+"Drop Terminal Con Type":"***",
+"Related Term Adr":"",
+"Drop Fiber Status":"TERMINATED",
+"Drop Fiber Action":"PLACE",
+"Drop Fiber Type":"AERIAL",
+"Drop Fiber Length":"",
+"Drop Terminal Adr":"CHENNAI",
+"Drop GPS Lat/Long":"-82.353544,28.1702099"
+},
+
+"Services ONT Drop":{
+"ONT - Action":"Install",
+"ONT - Serial":"",
+"ONT - Type":"SFU",
+"ONT - Make":"CXNK",
+"ONT - Model":"812NG-V",
+"ONT - Location Remark":"",
+"ONT - Location1":"",
+"ONT - Location2":"",
+"ONT - GPS Lat / Long":"2.796201,-82.439841"
+},
+
+"Service Data":{
+"TN/Circuit ID":"30/LCXA/804762 /VZFL",
+"FTTP Flag":"Y",
+"Line Action Code":"Install",
+"PIC 2 Code":"",
+"UpStream B/W":"1000",
+"DownStream B/W":"1000",
+"State Dynamic Indicator":"D"
 }
 
 

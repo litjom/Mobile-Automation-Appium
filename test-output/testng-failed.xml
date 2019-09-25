@@ -5,9 +5,8 @@
     <classes>
       <class name="com.CoA.qa.TestCases.JobPageTest">
         <methods>
-          <include name="ServiceandTimeStampTest"/>
-          <include name="teardown"/>
           <include name="setup"/>
+          <include name="Equipment"/>
         </methods>
       </class> <!-- com.CoA.qa.TestCases.JobPageTest -->
     </classes>

@@ -1,8 +1,10 @@
 package com.CoA.qa.TestCases;
 
 import java.util.Map;
+import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.WebElement;
 import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
@@ -16,13 +18,16 @@ import com.CoA.qa.Page.LoginPage;
 import com.CoA.qa.Util.ReadTestData;
 import com.CoA.qa.Util.TestUtil;
 
+import io.appium.java_client.android.AndroidDriver;
+
 public class JobPageTest extends BaseClass{
 LoginPage loginPage;
 DashBoard dashBoard;
 TestUtil testUtil;
 JobPage jobPage;
 ReadTestData readtest;
-Map<String, String> testData,testDistribution,CommonServiceTimeStamp;
+Map<String, String> testData,testDistribution,CommonServiceTimeStamp,CommonCustomerandContactInformation,CommonPrimaryContact,CommonAlternateContact,
+ServicesDropTerminal,ServicesONTDrop,ServiceData;
 //excel sheet Page
 	public  String sheetName = "JobPage";
 	
@@ -42,8 +47,15 @@ public void setup() throws InterruptedException{
 	testUtil = new TestUtil();
 	this.jobPage = new JobPage();
 	testData= ReadTestData.getJsonData("JsonData", "Common Quick Summary");
+	CommonCustomerandContactInformation =ReadTestData.getJsonData("JsonData", "Common Customer & Contact Information");
+	CommonPrimaryContact=  ReadTestData.getJsonData("JsonData", "Common Primary Contact");
 	CommonServiceTimeStamp = ReadTestData.getJsonData("JsonData", "Common Service & Time Stamp");
 	testDistribution =ReadTestData.getJsonData("JsonData", "Services Distribution");
+	CommonAlternateContact=ReadTestData.getJsonData("JsonData", "Common Alternate Contact");
+	ServicesDropTerminal=ReadTestData.getJsonData("JsonData", "Services Drop Terminal");
+	ServicesONTDrop=ReadTestData.getJsonData("JsonData", "Services ONT Drop");
+	ServiceData=ReadTestData.getJsonData("JsonData", "Service Data");
+	
 	
 	   try{
        	if(loginPage.UserID.isDisplayed())
@@ -65,151 +77,176 @@ public void setup() throws InterruptedException{
        	loginPage.clickAgree();
        	//* ADD MORE WAIT
        	}
-	Thread.sleep(35000);
-	driver.findElement(By.xpath("//android.widget.Button[@text='OK']")).click();
+	//Thread.sleep(35000);
+	   driver.manage().timeouts().implicitlyWait(80,TimeUnit.SECONDS) ;
+	//driver.findElement(By.xpath("//android.widget.Button[@text='OK']")).click();
 	TestUtil.clickActionMenu(dashBoard.actionMenu);
 	TestUtil.click(dashBoard.actionMenuJobBtn, "");
 }
 
+/*
+@Test(description = "Validating the title of Job Page")//Working
+public void jobPageTitleTest() throws InterruptedException{
 
-//@Test(description = "Validating the title of Job Page")
-//public void jobPageTitleTest() throws InterruptedException{
-//
-//	Assert.assertTrue(jobPage.getJobtTitle().equals("Jobs"));
-//	System.out.println("Title is Matched ::  " +jobPage.getJobtTitle());
-//}
+	Assert.assertTrue(jobPage.getJobtTitle().equals("Jobs"));
+	System.out.println("Title is Matched ::  " +jobPage.getJobtTitle());
+}
 
-//@Test(priority=7 ,description = "Chaging the status of the Job Test")
-//public void jobStatusChange() throws InterruptedException{
-//	Thread.sleep(1000);
-//	TestUtil.click(jobPage.JobOne, "");
-//	TestUtil.click(jobPage.ChangeStatus, "");
-//	
-//	TestUtil.click(jobPage.ChangeStatusInRoute, "");
-//	TestUtil.click(jobPage.ChangeStatusOkBtn, "");
-//	Assert.assertTrue(jobPage.getStatusText().equals("INR"));
-//	System.out.println("Status of the job Matched :: " +jobPage.getStatusText());
-//}
+@Test(priority=7 ,description = "Chaging the status of the Job Test")//working
+public void jobStatusChange() throws InterruptedException{
+	Thread.sleep(1000);
+	TestUtil.click(jobPage.JobOne, "");
+	TestUtil.click(jobPage.ChangeStatus, "");
+	
+	TestUtil.click(jobPage.ChangeStatusInRoute, "");
+	TestUtil.click(jobPage.ChangeStatusOkBtn, "");
+	Assert.assertTrue(jobPage.getStatusText().equals("INR"));
+	System.out.println("Status of the job Matched :: " +jobPage.getStatusText());
+}
 
-//@Test(priority =2, dependsOnMethods="jobStatusChange",description="Changing the status of Job2 Test")
-//public void jobStatusChange2() throws InterruptedException{
-//	Thread.sleep(2000);
-//	TestUtil.click(jobPage.JobTwo, "");
-//	TestUtil.click(jobPage.ChangeStatus, "");
-//	Thread.sleep(1000);
-//	TestUtil.click(jobPage.ChangeStatusInRoute, "");
-//	TestUtil.click(jobPage.ChangeStatusOkBtn, "");
-//	Assert.assertTrue(jobPage.getStatusText().equals("INR"));
-//	System.out.println("Status of job Matched:: " +jobPage.getStatusText());
-//}
+@Test(priority =2,description="Changing the status of Job2 Test") //working
+public void jobStatusChange2() throws InterruptedException{
+	Thread.sleep(2000);
+	TestUtil.click(jobPage.JobTwo, "");
+	TestUtil.click(jobPage.ChangeStatus, "");
+	Thread.sleep(1000);
+	TestUtil.click(jobPage.ChangeStatusInRoute, "");
+	TestUtil.click(jobPage.ChangeStatusOkBtn, "");
+	Assert.assertTrue(jobPage.getStatusText().equals("INR"));
+	System.out.println("Status of job Matched:: " +jobPage.getStatusText());
+}
 
-//@Test(priority=1, description="Validating the job")
-//public void jobDataValidation() throws InterruptedException{
-//	Thread.sleep(1000);
-//	TestUtil.click(jobPage.JobOne, "");
-//	Assert.assertEquals(testData.get("JobID"), jobPage.Job.getText().trim());
-//}
+@Test(priority=1, description="Validating the job") //working
+public void jobDataValidation() throws InterruptedException{
+	Thread.sleep(1000);
+	TestUtil.click(jobPage.JobOne, "");
+	Assert.assertEquals(testData.get("JobID"), jobPage.Job.getText().trim());
+	System.out.println("Data Matched for JobID :: " +jobPage.Job.getText().trim());
+}
 
-//@Test(priority =2,description= "Validating MON")
-//public void MONDataValidation() throws InterruptedException{
-//	Thread.sleep(3000);
-//	TestUtil.click(jobPage.JobOne, "");
-//	
-//	Assert.assertEquals(testData.get("JobID"), jobPage.Job.getText().trim());
-//	System.out.println("Data matched for JobID ::"+jobPage.Job.getText().trim());
-//	
-//	Assert.assertEquals(testData.get("MON"), jobPage.MON.getText().trim());
-//	System.out.println("Data matched for MON ::" +jobPage.MON.getText());
-////	try{
-//	Assert.assertEquals(testData.get("Customer Name"), jobPage.CustomerName.getText().trim());
-//	System.out.println("Data matched for Customer Name ::" +jobPage.CustomerName.getText());
-//
-//	Assert.assertEquals(testData.get("Circuit ID [Data Line- 1]"), jobPage.CircuitID.getText().trim());
-//	System.out.println("Data matched for Circuit ID ::"+jobPage.CircuitID.getText().trim());
-//	
-//	Assert.assertEquals(testData.get("Access Window"), jobPage.AccessWindow.getText().trim());
-//	System.out.println("Data matched for Access window ::"+jobPage.AccessWindow.getText().trim());
-//	
-//	Assert.assertEquals(testData.get("Address"), jobPage.AddressLine1.getText().trim());
-//	System.out.println("Data matched for Address ::"+jobPage.AddressLine1.getText().trim());
-//	
-//	Assert.assertEquals(testData.get("Due Date"), jobPage.DueDate.getText().trim());
-//	System.out.println("Data matched for Due Date::"+jobPage.DueDate.getText().trim());
-//	
-//	Assert.assertEquals(testData.get("Dispatch ID"), jobPage.DispatchID.getText().trim());
-//	System.out.println("Data matched for Dispatch ID::"+jobPage.DispatchID.getText().trim());
-//	
-//	Assert.assertEquals(testData.get("TSP"), jobPage.TSP.getText().trim());
-//	System.out.println("Data Matched for TSP ::"+jobPage.TSP.getText().trim());
-//	
-//	Assert.assertEquals(testData.get("Scheduled Start"), jobPage.ScheduledStart.getText().trim());
-//	System.out.println("Data Matched for Scheduled start ::"+jobPage.ScheduledStart.getText().trim());
-//	
-//	Assert.assertEquals(testData.get("Activity"), jobPage.Activity.getText().trim());
-//	System.out.println("Data Matched for Activity ::"+jobPage.Activity.getText().trim());
-//	
-//	Assert.assertEquals(testData.get("Step Code"), jobPage.StepCode.getText().trim());
-//	System.out.println("Data Matched for Step code ::"+jobPage.StepCode.getText().trim());
-//	
-//	Assert.assertEquals(testData.get("Expedite"), jobPage.Expedite.getText().trim());
-//	System.out.println("Data Matched for Expedite ::"+jobPage.Expedite.getText().trim());
-//	
-//	Assert.assertEquals(testData.get("Site"), jobPage.Site.getText().trim());
-//	System.out.println("Data Matched for Site ::" +jobPage.Site.getText().trim());
-//	
-//	Assert.assertEquals(testData.get("CSite"), jobPage.CSite.getText().trim());
-//	System.out.println("Data Matched for Csite::" +jobPage.CSite.getText().trim());
-//	
-//	Assert.assertEquals(testData.get("Alert"), jobPage.Alert.getText().trim());
-//	System.out.println("Data Matched for Alert::" +jobPage.Alert.getText().trim());
-//	System.out.println("---All data in quick summary Matched---");
-//}
+@Test(priority =2,description= "Validating quick summary in Common")//working
+public void MONDataValidation() throws InterruptedException{
+	Thread.sleep(3000);
+	TestUtil.click(jobPage.JobOne, "");
+	
+	Assert.assertEquals(testData.get("JobID"), jobPage.Job.getText().trim());
+	System.out.println("Data matched for JobID ::"+jobPage.Job.getText().trim());
+	
+	Assert.assertEquals(testData.get("MON"), jobPage.MON.getText().trim());
+	System.out.println("Data matched for MON ::" +jobPage.MON.getText());
 
-/*@Test(description ="Validating Customer and contact information")//Not working
+	Assert.assertEquals(testData.get("Customer Name"), jobPage.CustomerName.getText().trim());
+	System.out.println("Data matched for Customer Name ::" +jobPage.CustomerName.getText());
+
+	Assert.assertEquals(testData.get("Circuit ID [Data Line- 1]"), jobPage.CircuitID.getText().trim());
+	System.out.println("Data matched for Circuit ID ::"+jobPage.CircuitID.getText().trim());
+	
+	Assert.assertEquals(testData.get("Access Window"), jobPage.AccessWindow.getText().trim());
+	System.out.println("Data matched for Access window ::"+jobPage.AccessWindow.getText().trim());
+	
+	Assert.assertEquals(testData.get("Address"), jobPage.AddressLine1.getText().trim());
+	System.out.println("Data matched for Address ::"+jobPage.AddressLine1.getText().trim());
+	
+	Assert.assertEquals(testData.get("Due Date"), jobPage.DueDate.getText().trim());
+	System.out.println("Data matched for Due Date::"+jobPage.DueDate.getText().trim());
+	
+	Assert.assertEquals(testData.get("Dispatch ID"), jobPage.DispatchID.getText().trim());
+	System.out.println("Data matched for Dispatch ID::"+jobPage.DispatchID.getText().trim());
+	
+	Assert.assertEquals(testData.get("TSP"), jobPage.TSP.getText().trim());
+	System.out.println("Data Matched for TSP ::"+jobPage.TSP.getText().trim());
+	
+	Assert.assertEquals(testData.get("Scheduled Start"), jobPage.ScheduledStart.getText().trim());
+	System.out.println("Data Matched for Scheduled start ::"+jobPage.ScheduledStart.getText().trim());
+	
+	Assert.assertEquals(testData.get("Activity"), jobPage.Activity.getText().trim());
+	System.out.println("Data Matched for Activity ::"+jobPage.Activity.getText().trim());
+	
+	Assert.assertEquals(testData.get("Step Code"), jobPage.StepCode.getText().trim());
+	System.out.println("Data Matched for Step code ::"+jobPage.StepCode.getText().trim());
+	
+	Assert.assertEquals(testData.get("Expedite"), jobPage.Expedite.getText().trim());
+	System.out.println("Data Matched for Expedite ::"+jobPage.Expedite.getText().trim());
+	
+	Assert.assertEquals(testData.get("Site"), jobPage.Site.getText().trim());
+	System.out.println("Data Matched for Site ::" +jobPage.Site.getText().trim());
+	
+	Assert.assertEquals(testData.get("CSite"), jobPage.CSite.getText().trim());
+	System.out.println("Data Matched for Csite::" +jobPage.CSite.getText().trim());
+	
+	
+	
+	System.out.println("---All data in quick summary Matched---");
+}
+
+@Test(description ="Validating Customer and contact information")
+ // working
 public void CustomerandContactDataValidation() throws InterruptedException{
 	
 	TestUtil.click(jobPage.JobOne, "");
 	String visibleText="+ Customer & Contact Information";
 	
-	//driver.findElementByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().textContains(\""+visibleText+"\").instance(0))");
 	TestUtil.scrollDown();
 	System.out.println("Scroll Successfull");
 	TestUtil.click(jobPage.CustomerandContactInformation, "");
 //	driver.findElementByAndroidUIAutomator("new UiScrollable(new UiSelector().scrollable(true).instance(0)).scrollIntoView(new UiSelector().textContains(\""+− Customer & Contact Information+"\").instance(0))").click();
-	
-	//I changed the driver to android dirver = no such element exceptions
-	Thread.sleep(5000);
-	
-	//driver.findElementByAndroidUIAutomator("new UiScrollable(new UiSelector()).scrollIntoView(text('+ Customer & Contact Information'))");
-	
 
-	//DOUBT
-	//System.out.println("Customer Name label:"+jobPage.customernamelabel.getText());
-		Assert.assertEquals(testData.get("Customer Name 2"),jobPage.CustomerNameinCustomerandContactInformation.getText());
-	System.out.println("Data Matched for Customer name in customer and contact information:: "+jobPage.CustomerNameinCustomerandContactInformation.getText());
+	Assert.assertEquals(CommonCustomerandContactInformation.get("Customer Name 2"),jobPage.CustomerNameinCustomerandContactInformation.getAttribute("text").trim());
+	System.out.println("Data Matched for Customer name in customer and contact information:: "+jobPage.CustomerNameinCustomerandContactInformation.getAttribute("text").trim());
 
-	Assert.assertEquals(testData.get("Address 2"), jobPage.AddressinCustomerandContactInfomration.getText().trim());	
-	System.out.println("Data matched for Addrees in customer and contact information:: " + jobPage.AddressinCustomerandContactInfomration.getText().trim());
-}*/
+	Assert.assertEquals(CommonCustomerandContactInformation.get("Address 2"), jobPage.AddressinCustomerandContactInfomration.getAttribute("text").trim());	
+	System.out.println("Data matched for Addrees in customer and contact information:: " + jobPage.AddressinCustomerandContactInfomration.getAttribute("text").trim());
+}
 
-/*@Test //Xpath Issues with primarycontact name
+@Test //Working
 public void PrimaryContactValidation() throws InterruptedException{
 	TestUtil.click(jobPage.JobOne, "");
+	TestUtil.scrollDown();
 	TestUtil.click(jobPage.CustomerandContactInformation, "");
-	Thread.sleep(5000);
+	TestUtil.scrollDown();
 	TestUtil.click(jobPage.PrimaryContact, "");
-//	Thread.sleep(3000);
+
 	
-	Assert.assertEquals(testData.get("Name"), jobPage.PrimaryContactName.getText().trim());
-	System.out.println("Data matched for Primary contact name ::"+jobPage.PrimaryContactName.getText().trim() );
+	Assert.assertEquals(CommonPrimaryContact.get("Name"), jobPage.PrimaryContactName.getAttribute("text").trim());
+	System.out.println("Data matched for Primary contact name ::"+jobPage.PrimaryContactName.getAttribute("text").trim());
 	
-//	Assert.assertEquals(testData.get(""), jobPage.PrimaryContactPhoneNumber.getText().trim());
-//	System.out.println("Data matched for Primary Phone number ::"+jobPage.PrimaryContactPhoneNumber.getText().trim());
-}*/
+	Assert.assertEquals(CommonPrimaryContact.get("Phone Number"), jobPage.PrimaryContactPhoneNumber.getAttribute("text").trim());
+	System.out.println("Data matched for Primary Phone number ::"+jobPage.PrimaryContactPhoneNumber.getAttribute("text").trim());
+	
+	Assert.assertEquals(CommonPrimaryContact.get("Fax Number"),jobPage.PrimaryContactFaxNumber.getAttribute("text").trim());
+	System.out.println("Data matched for Primary Contact Fax Number ::"+jobPage.PrimaryContactFaxNumber.getAttribute("text").trim());
+	
+	Assert.assertEquals(CommonPrimaryContact.get("Email Address"),jobPage.PrimaryContactEmailAddress.getAttribute("text").trim());
+	System.out.println("Data matched for Primary Email Address ::"+jobPage.PrimaryContactEmailAddress.getAttribute("text").trim());
+	
+	Assert.assertEquals(CommonPrimaryContact.get("Cell Number"),jobPage.PrimaryContactCellNumber.getAttribute("text").trim());
+	System.out.println("Data matched for Primary Contact CellNumber ::"+jobPage.PrimaryContactCellNumber.getAttribute("text").trim());
+	
+	Assert.assertEquals(CommonPrimaryContact.get("Primary LCON On Site"),jobPage.PrimaryLCONOnSite.getAttribute("text").trim());
+	System.out.println("Data matched for Primary LCON On Site ::"+jobPage.PrimaryLCONOnSite.getAttribute("text").trim());
+}
+
+@Test //Working
+public void AlternateContactTest(){
+	TestUtil.click(jobPage.JobOne, "");
+	TestUtil.scrollDown();
+	TestUtil.click(jobPage.CustomerandContactInformation, "");
+	TestUtil.scrollDown();
+	TestUtil.click(jobPage.PrimaryContact, "");
+	TestUtil.scrollDown();
+	TestUtil.click(jobPage.AlternateContact, "");
+	TestUtil.scrollDown();
+	
+	Assert.assertEquals(CommonAlternateContact.get("Name"),jobPage.AlternateName.getAttribute("text").trim());
+	System.out.println("Data matched for Alternate contact Name ::"+jobPage.AlternateName.getAttribute("text").trim());
+	
+	Assert.assertEquals(CommonAlternateContact.get("Phone Number"),jobPage.AlternatePhone.getAttribute("text").trim());
+	System.out.println("Data matched for Alternate Phone ::"+jobPage.AlternatePhone.getAttribute("text").trim());
+}
 
 
 //BUTTONS=WORKING
-/*@Test(priority=9)
+@Test(priority=9)
 public void JobMapBtnTest(){
 	TestUtil.click(jobPage.JobOne, "");
 	TestUtil.click(jobPage.JobMapBtn, "");
@@ -225,24 +262,50 @@ public void NavBtnTest(){
 	TestUtil.click(jobPage.NavBtn, "");
 	Assert.assertEquals(jobPage.GOBtn1.getText().trim(), "Go");
 	System.out.println("Verified upon clicking Nav button, it opened a new pop up and printed a text present in the pop up :: "+jobPage.GOBtn1.getText().trim());
-}*/
-/*@Test //PrimaryContact xpath, not working
-public void EditBtnTest(){
+}
+@Test // working
+public void PrimaryContactsEditBtnTest(){
 	TestUtil.click(jobPage.JobOne, "");
+	TestUtil.scrollDown();
 	TestUtil.click(jobPage.CustomerandContactInformation, "");
+	TestUtil.scrollDown();
 	TestUtil.explicitWait(jobPage.PrimaryContact);
 	TestUtil.click(jobPage.PrimaryContact, "");
 	TestUtil.explicitWait(jobPage.PrimaryContact);
 	TestUtil.click(jobPage.EditBtn, "");
 	TestUtil.input(jobPage.EditName, "VIRTUAL,TESTING", "");
+	TestUtil.input(jobPage.EditPhone, "8316937018","");
+	TestUtil.input(jobPage.EditEmail, "pranavi.vangala@one.verizon.com", "");
+	TestUtil.click(jobPage.EditSubmit, "");
+	System.out.println("Upon clicking Submit button displays message :: "+jobPage.ContactUpdatedMessage.getAttribute("text").trim());
 	
-}*/
+	
+}
 
+
+@Test
+public void AlternateEditButton(){
+	TestUtil.click(jobPage.JobOne, "");
+	TestUtil.scrollDown();
+	TestUtil.click(jobPage.CustomerandContactInformation, "");
+	TestUtil.scrollDown();
+	TestUtil.click(jobPage.PrimaryContact, "");
+	TestUtil.scrollDown();
+	TestUtil.click(jobPage.AlternateContact, "");
+	TestUtil.scrollDown();
+	TestUtil.click(jobPage.AlternateEditBtn, "");
+	TestUtil.input(jobPage.AlternateEditName, "VIRTUAL,TESTING", "");
+	TestUtil.input(jobPage.EditPhone, "8316937018","");
+	TestUtil.input(jobPage.AlternateEditEmail, "pranavi.vangala@one.verizon.com", "");
+	TestUtil.click(jobPage.AlternateSubmit, "");
+	System.out.println("Upon clicking Submit button displays message :: "+jobPage.ContactUpdatedMessage.getAttribute("text").trim());
+}
 
 
 //COMMENTS
 //Working
-/*@Test
+
+@Test
 public void AddCommentTest(){
 	TestUtil.scrollDown();
 	TestUtil.click(jobPage.CommentIcon, "");
@@ -251,8 +314,8 @@ public void AddCommentTest(){
 	TestUtil.click(jobPage.Save, "");
 	Assert.assertEquals(jobPage.RequestSentSuccesfullMessage.getText().trim(), "Add Comment : Request sent successfully");
 	System.out.println("Request sent Successfull message has been verified upon clicking the save button :: "+jobPage.RequestSentSuccesfullMessage.getText());
-}*/
-/*@Test
+}
+@Test
 //Working
 public void SearchCommentTest(){
 	TestUtil.scrollDown();
@@ -261,11 +324,11 @@ public void SearchCommentTest(){
 	TestUtil.input(jobPage.SearchBox, "Hello New house in Tampa", "");
 	Assert.assertEquals(jobPage.Firstcomment.getText().trim(), "Hello New house in Tampa");
 	System.out.println("Comment matches with the search :: "+jobPage.Firstcomment.getText());
-}*/
+}
 
 @Test 
-//Not working providing null values for data
-public void ServiceandTimeStampTest(){
+//working
+public void CommonServiceandTimeStampTest(){
 	TestUtil.scrollDown();
 	TestUtil.click(jobPage.ServiceandTimeStamp, "");
 	TestUtil.scrollDown();
@@ -317,34 +380,35 @@ public void ServiceandTimeStampTest(){
 	Assert.assertEquals(CommonServiceTimeStamp.get("Dispatcher"), jobPage.Dispatcher.getAttribute("text").trim());
 	System.out.println("Data matched for Dispatcher ::"+jobPage.Dispatcher.getAttribute("text").trim());
 	
-//	Assert.assertEquals(CommonServiceTimeStamp.get("Service Ticket Number"), jobPage.ServiceTicketNumber.getAttribute("text").trim());
-//	System.out.println("Data matched for Service Ticket Number ::"+jobPage.ServiceTicketNumber.getAttribute("text").trim());
+	Assert.assertEquals(CommonServiceTimeStamp.get("Service Ticket Number"), jobPage.ServiceTicketNumber.getAttribute("text").trim());
+	System.out.println("Data matched for Service Ticket Number ::"+jobPage.ServiceTicketNumber.getAttribute("text").trim());
 	
 	Assert.assertEquals(CommonServiceTimeStamp.get("Service Type"), jobPage.ServiceType.getAttribute("text").trim());
 	System.out.println("Data matched for Service Type ::"+jobPage.ServiceType.getAttribute("text").trim());
 	
-//	Assert.assertEquals(CommonServiceTimeStamp.get("Source Prov System Name"), jobPage.SourceProvSystemName.getAttribute("text").trim());
-//	System.out.println("Data matched for Source Prov System Name ::"+jobPage.SourceProvSystemName.getAttribute("text").trim());
+	Assert.assertEquals(CommonServiceTimeStamp.get("Source Prov System Name"), jobPage.SourceProvSystemName.getAttribute("text").trim());
+	System.out.println("Data matched for Source Prov System Name ::"+jobPage.SourceProvSystemName.getAttribute("text").trim());
 	
 	Assert.assertEquals(CommonServiceTimeStamp.get("Status Reason"), jobPage.StatusReason.getAttribute("text").trim());
 	System.out.println("Data matched for Status Reason ::"+jobPage.StatusReason.getAttribute("text").trim());
 	
-//	Assert.assertEquals(CommonServiceTimeStamp.get("Bill Type"), jobPage.BillType.getAttribute("text").trim());
-//	System.out.println("Data matched for Bill Type ::"+jobPage.BillType.getAttribute("text").trim());
+	Assert.assertEquals(CommonServiceTimeStamp.get("Bill Type"), jobPage.BillType.getAttribute("text").trim());
+	System.out.println("Data matched for Bill Type ::"+jobPage.BillType.getAttribute("text").trim());
 	
-//	Assert.assertEquals(CommonServiceTimeStamp.get("Travel Miles"), jobPage.TravelMiles.getAttribute("text").trim());
-//	System.out.println("Data matched for Travel Miles ::"+jobPage.TravelMiles.getAttribute("text").trim());
+	Assert.assertEquals(CommonServiceTimeStamp.get("Travel Miles"), jobPage.TravelMiles.getAttribute("text").trim());
+	System.out.println("Data matched for Travel Miles ::"+jobPage.TravelMiles.getAttribute("text").trim());
 	
 	Assert.assertEquals(CommonServiceTimeStamp.get("Updated By"), jobPage.UpdatedBy.getAttribute("text").trim());
 	System.out.println("Data matched for Updated By ::"+jobPage.UpdatedBy.getAttribute("text").trim());
 	
-//	Assert.assertEquals(CommonServiceTimeStamp.get("Firm"), jobPage.Firm.getAttribute("text").trim());
-//	System.out.println("Data matched for Firm ::"+jobPage.Firm.getAttribute("text").trim());
+	Assert.assertEquals(CommonServiceTimeStamp.get("Firm"), jobPage.Firm.getAttribute("text").trim());
+	System.out.println("Data matched for Firm ::"+jobPage.Firm.getAttribute("text").trim());
 	
+	System.out.println("All the data matched");
 }
 
 
-/*@Test //Working
+@Test //Working
 public void ServiceDistributionDataTest(){
 	TestUtil.click(jobPage.ServiceTab, "");
 	TestUtil.click(jobPage.Distribution, "");
@@ -398,6 +462,96 @@ public void ServiceDistributionDataTest(){
 	
 	System.out.println("All data matched in Service Distribution");
 }*/
+//@Test//Working
+//public void ServiceDropTerminalDataTest(){
+//	TestUtil.click(jobPage.ServiceTab, "");
+//	TestUtil.click(jobPage.ServiceDropTerminal, "");
+//	
+//	Assert.assertEquals(ServicesDropTerminal.get("Drop Terminal Name"), jobPage.ServiceDropTerminalName.getAttribute("text").trim());
+//	System.out.println("Data matched for Drop Terminal Name  ::"+jobPage.ServiceDropTerminalName.getAttribute("text").trim());
+//
+//	Assert.assertEquals(ServicesDropTerminal.get("Drop Terminal Port"), jobPage.ServiceDropTerminalPort.getAttribute("text").trim());
+//	System.out.println("Data matched for Drop Terminal Port ::"+jobPage.ServiceDropTerminalPort.getAttribute("text").trim());
+//	
+//	Assert.assertEquals(ServicesDropTerminal.get("Drop Terminal Con Type"), jobPage.ServiceDropTerminalConType.getAttribute("text").trim());
+//	System.out.println("Data matched for Drop Terminal Con Type ::"+jobPage.ServiceDropTerminalConType.getAttribute("text").trim());
+//	
+//	Assert.assertEquals(ServicesDropTerminal.get("Drop Fiber Status"), jobPage.ServiceDropTerminalFiberStatus.getAttribute("text").trim());
+//	System.out.println("Data matched for Drop Fiber Status::"+jobPage.ServiceDropTerminalFiberStatus.getAttribute("text").trim());
+//	
+//	Assert.assertEquals(ServicesDropTerminal.get("Drop Fiber Action"), jobPage.ServiceDropTerminalFiberAction.getAttribute("text").trim());
+//	System.out.println("Data matched for Drop Fiber Action ::"+jobPage.ServiceDropTerminalFiberAction.getAttribute("text").trim());
+//	
+//	Assert.assertEquals(ServicesDropTerminal.get("Drop Fiber Type"), jobPage.ServiceDropTerminalFiberType.getAttribute("text").trim());
+//	System.out.println("Data matched for Drop Fiber Type::"+jobPage.ServiceDropTerminalFiberType.getAttribute("text").trim());
+//	
+//	Assert.assertEquals(ServicesDropTerminal.get("Drop Terminal Adr"), jobPage.ServiceDropTerminalAdr.getAttribute("text").trim());
+//	System.out.println("Data matched for Drop Terminal Adr::"+jobPage.ServiceDropTerminalAdr.getAttribute("text").trim());
+//	
+//	Assert.assertEquals(ServicesDropTerminal.get("Drop GPS Lat/Long"), jobPage.ServiceDropTerminalGPSLatLong.getAttribute("text").trim());
+//	System.out.println("Data matched for Drop GPS Lat/Long ::"+jobPage.ServiceDropTerminalGPSLatLong.getAttribute("text").trim());
+//}
+
+//@Test//working
+//public void ServiceONTDropDataTest(){
+//	TestUtil.click(jobPage.ServiceTab, "");
+//	TestUtil.click(jobPage.ServiceONTDrop, "");
+//	
+//	Assert.assertEquals(ServicesONTDrop.get("ONT - Action"), jobPage.ServiceONTDropAction.getAttribute("text").trim());
+//	System.out.println("Data matched for ONT - Action  ::"+jobPage.ServiceONTDropAction.getAttribute("text").trim());
+//
+//	Assert.assertEquals(ServicesONTDrop.get("ONT - Type"), jobPage.ServiceONTDropType.getAttribute("text").trim());
+//	System.out.println("Data matched for ONT - Type  ::"+jobPage.ServiceONTDropType.getAttribute("text").trim());
+//	
+//	Assert.assertEquals(ServicesONTDrop.get("ONT - Make"), jobPage.ServiceONTDropMake.getAttribute("text").trim());
+//	System.out.println("Data matched for ONT - Make  ::"+jobPage.ServiceONTDropMake.getAttribute("text").trim());
+//	
+//	Assert.assertEquals(ServicesONTDrop.get("ONT - Model"), jobPage.ServiceONTDropModel.getAttribute("text").trim());
+//	System.out.println("Data matched for ONT - Model  ::"+jobPage.ServiceONTDropModel.getAttribute("text").trim());
+//	
+//	Assert.assertEquals(ServicesONTDrop.get("ONT - GPS Lat / Long"), jobPage.ServiceONTDropGPSLatLong.getAttribute("text").trim());
+//	System.out.println("Data matched for ONT - GPS Lat / Long  ::"+jobPage.ServiceONTDropGPSLatLong.getAttribute("text").trim());
+//}
+
+//@Test//Working
+//public void ServiceDataDataTest(){
+//	TestUtil.click(jobPage.ServiceTab, "");
+//	TestUtil.click(jobPage.ServiceData, "");
+//	
+//	Assert.assertEquals(ServiceData.get("TN/Circuit ID"), jobPage.ServiceDataTNCircuitID.getAttribute("text").trim());
+//	System.out.println("Data matched for TN/Circuit ID  ::"+jobPage.ServiceDataTNCircuitID.getAttribute("text").trim());
+//	
+//	Assert.assertEquals(ServiceData.get("FTTP Flag"), jobPage.ServiceDataFTTPFlag.getAttribute("text").trim());
+//	System.out.println("Data matched for FTTP Flag  ::"+jobPage.ServiceDataFTTPFlag.getAttribute("text").trim());
+//	
+//	Assert.assertEquals(ServiceData.get("Line Action Code"), jobPage.ServiceDataLineActionCode.getAttribute("text").trim());
+//	System.out.println("Data matched for Line Action Code  ::"+jobPage.ServiceDataLineActionCode.getAttribute("text").trim());
+//
+//	Assert.assertEquals(ServiceData.get("UpStream B/W"), jobPage.ServiceDataUpStreamBW.getAttribute("text").trim());
+//	System.out.println("Data matched for UpStream B/W  ::"+jobPage.ServiceDataUpStreamBW.getAttribute("text").trim());
+//	
+//	Assert.assertEquals(ServiceData.get("DownStream B/W"), jobPage.ServiceDataDownStreamBW.getAttribute("text").trim());
+//	System.out.println("Data matched for DownStream B/W  ::"+jobPage.ServiceDataDownStreamBW.getAttribute("text").trim());
+//	
+//	Assert.assertEquals(ServiceData.get("State Dynamic Indicator"), jobPage.ServiceDataStaticDynamicIndicator.getAttribute("text").trim());
+//	System.out.println("Data matched for State Dynamic Indicator  ::"+jobPage.ServiceDataStaticDynamicIndicator.getAttribute("text").trim());
+//}
+
+//@Test
+//public void ServiceFeature(){
+//	TestUtil.click(jobPage.ServiceTab, "");
+//	TestUtil.click(jobPage.ServiceFeature, "");
+//}
+
+//===========================================================================================================================================//
+
+//EQUIPMENT
+
+@Test
+public void EquipmentONTValidation(){
+	TestUtil.click(jobPage.EquipmentTab, "");
+	TestUtil.click(jobPage.EquipmentONT, "");
+}
 
 
 @AfterMethod

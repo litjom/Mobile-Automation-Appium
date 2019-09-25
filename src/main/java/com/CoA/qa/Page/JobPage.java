@@ -118,8 +118,7 @@ public class JobPage extends BaseClass {
 	@FindBy(xpath="//*[@resource-id='quickSumAcc-content']/android.widget.GridView[@index=1]/android.view.View[@index=15]/android.view.View[@index=1]")
 	public WebElement CSite;
 	
-	@FindBy(xpath="//*[@resource-id='quickSumAcc-content']/android.widget.GridView[@index=1]/android.view.View[@index=16]/android.view.View[@index=1]")
-	public WebElement Alert;
+	
 	
 	
 	
@@ -127,11 +126,11 @@ public class JobPage extends BaseClass {
 	
 	//JSON VERIFICATION ELEMENTS CUSTOMER & CONTACT INFORMATION
 	
-	@FindBy(xpath="//android.widget.Button[@text=\"+ Customer & Contact Information\"]")
+	@FindBy(xpath="//android.view.View[@resource-id='contact_info-contactAcc']")
 	public WebElement CustomerandContactInformation;
 	
 	
-	@FindBy(xpath="//*[@text='VIRTUAL' and (./preceding-sibling::* | ./following-sibling::*)[@text='Customer Name :'] and ./parent::*[./parent::*[./parent::*[@text='− Customer & Contact Information']]]]")
+	@FindBy(xpath="//*[@resource-id='contact_info-contactAcc-content']/android.widget.GridView[@index=1]/android.view.View[@index=0]/android.view.View[@index=1]")
 	public WebElement CustomerNameinCustomerandContactInformation;
     //((//*[@class='android.widget.GridView']/*[@class='android.view.View'])[17]/*[@text and @class='android.view.View' and @height>0])[2]
 	//*[@text='Customer Name :']/..//android.view.View[@index=1]
@@ -146,22 +145,41 @@ public class JobPage extends BaseClass {
 	
 	
 	//JSON VERIFICATION PRIMARY CONTACTS
-	@FindBy(xpath="//android.widget.Button[@text=\"+ Primary Contact\"]")
+	@FindBy(xpath="//android.view.View[@resource-id='PRIMARY0']")
 	public WebElement PrimaryContact;
 	
 	
-	@FindBy(xpath="//*[@resource-id='PRIMARY0-content']/android.widget.GridView[@index=1]/android.view.View[@index=1]/android.view.View[index=0]")
+	@FindBy(xpath="//*[@text='VIRTUAL,TESTING']")
 	public WebElement PrimaryContactName;
+	//*[@resource-id='PRIMARY0-content'and index=3]/android.widget.GridView[@index=1]/android.view.View[@index=1]/android.view.View[index=0]
+	//*[@text='VIRTUAL,TESTING']
 	//*[@resource-id='PRIMARY0-content']/android.widget.GridView[@index=1]/android.view.View[@index=0]/android.view.View[@index=1]
 	
 	@FindBy(xpath="//android.view.View[@text='813-693-7018']")
 	public WebElement PrimaryContactPhoneNumber;
 	
-	@FindBy(xpath="")
+	@FindBy(xpath="//*[@text='-']")
 	public WebElement PrimaryContactFaxNumber;
 	
-	@FindBy(xpath="//*[@resource-id='contact_info-contactAcc-content']/android.view.View[@resource-id='PRIMARY0-content']/android.widget.GridView[@index=1]")
+	@FindBy(xpath="//*[@text='pranavi.vangala@one.verizon.com' and ./parent::*[@text='pranavi.vangala@one.verizon.com']]")
 	public WebElement PrimaryContactEmailAddress;
+	
+	@FindBy(xpath="//*[@text='813-693-7018']")
+	public WebElement PrimaryContactCellNumber;
+	
+	@FindBy(xpath="//*[@text='--']")
+	public WebElement PrimaryLCONOnSite;
+	
+	//JSON VERIFICATION ALTERNATE CONTACT
+	@FindBy(xpath="//android.view.View[@resource-id='ALTERNATE1']")
+	public WebElement AlternateContact;
+	
+	@FindBy(xpath="//*[@text='VIRTUAL,TESTING']")
+	public WebElement AlternateName;
+	
+	@FindBy(xpath="//*[@text='813-693-7018']")
+	public WebElement AlternatePhone;
+	
 	
 	
 	//BUTTONS JOBMAP
@@ -191,7 +209,7 @@ public class JobPage extends BaseClass {
 	
 	
 	//BUTTON PRIMARYCONTACT EDIT
-	@FindBy(xpath="//*[@resource-id='PRIMARY0-content']/android.widget.GridView[@index=1]/android.view.View[@index=0]/android.view.View[@index=1]/android.widget.Button[@index=2]")
+	@FindBy(xpath="//*[@text='Edit']")
 	public WebElement EditBtn;
 	//*[@resource-id='PRIMARY0-content']/android.widget.GridView[@index=1]/android.view.View[@index=0]/android.view.View[@index=1]/android.widget.Button[@index=2]
 	
@@ -206,6 +224,31 @@ public class JobPage extends BaseClass {
 	
 	@FindBy(xpath="//android.widget.EditText[@resource-id='Mailid']")
 	public WebElement EditEmail;
+	
+	@FindBy(xpath="//android.widget.Button[@resource-id='Submit']")
+	public WebElement EditSubmit;
+	
+	@FindBy(xpath="//android.view.View[@text='Contacts updated successfully']")
+	public WebElement ContactUpdatedMessage;
+	
+	//Button Alternate Contact Edit Button
+	@FindBy(xpath="//android.widget.Button[@resource-id='ALTERNATE']")
+	public WebElement AlternateEditBtn;
+	
+	@FindBy(xpath="//android.widget.EditText[@resource-id='contName']")
+	public WebElement AlternateEditName;
+	
+	@FindBy(xpath="//android.widget.EditText[@resource-id='contPhone']")
+	public WebElement AlternateEditPhone;
+	
+	@FindBy(xpath="//android.widget.EditText[@resource-id='FaxNo']")
+	public WebElement AlternateEditFax;
+	
+	@FindBy(xpath="//android.widget.EditText[@resource-id='Mailid']")
+	public WebElement AlternateEditEmail;
+	
+	@FindBy(xpath="//android.widget.Button[@resource-id='Submit']")
+	public WebElement AlternateSubmit;
 	
 	
 	//COMMENTS - Addcomments
@@ -246,7 +289,7 @@ public class JobPage extends BaseClass {
 	public WebElement AppointmentStartDate;
 	
 	
-	@FindBy(xpath="//*[@text='07/11/2019 11:00' and (./preceding-sibling::* | ./following-sibling::*)[@text='Appointment Stop Date :']]")
+	@FindBy(xpath="//*[@resource-id='mltAcc-content']/android.widget.GridView[@index=1]/android.view.View[@index=2]/android.view.View[@index=1]")
 	public WebElement AppointmentStopDate;
 
 	@FindBy(xpath="//*[@text='06/26/2019 14:45']")
@@ -291,28 +334,30 @@ public class JobPage extends BaseClass {
 	@FindBy(xpath="//*[@text='Tablet:jomonli']")
 	public WebElement Dispatcher;
 	
-	@FindBy(xpath="//*[@text='N' and @height>0]")
+	@FindBy(xpath="//*[@resource-id='mltAcc-content']/android.widget.GridView[@index=1]/android.view.View[@index=24]/android.view.View[@index=1]")
 	public WebElement ServiceTicketNumber;
 	
 	@FindBy(xpath="//*[@text='vangapr']")
 	public WebElement ServiceType;
 	
 	//No text used
-	@FindBy(xpath="((//*[@class='android.widget.GridView']/*[@class='android.view.View'])[43]/*[@text and @class='android.view.View' and @height>0])[2]")
+	@FindBy(xpath="//*[@resource-id='mltAcc-content']/android.widget.GridView[@index=1]/android.view.View[@index=26]/android.view.View[@index=1]")
 	public WebElement SourceProvSystemName;
 	
-	@FindBy(xpath="//*[@text='Data']")
+	@FindBy(xpath="//*[@resource-id='mltAcc-content']/android.widget.GridView[@index=1]/android.view.View[@index=27]/android.view.View[@index=1]")
 	public WebElement StatusReason;
 	
-	@FindBy(xpath="")
+	@FindBy(xpath="//*[@resource-id='mltAcc-content']/android.widget.GridView[@index=1]/android.view.View[@index=28]/android.view.View[@index=1]")
 	public WebElement BillType;
 	
-	@FindBy(xpath="")
+	@FindBy(xpath="//*[@resource-id='mltAcc-content']/android.widget.GridView[@index=1]/android.view.View[@index=29]/android.view.View[@index=1]")
 	public WebElement TravelMiles;
 	
-	@FindBy(xpath="")
+	@FindBy(xpath="//*[@resource-id='mltAcc-content']/android.widget.GridView[@index=1]/android.view.View[@index=30]/android.view.View[@index=1]")
 	public WebElement Firm;
 	
+	
+	//========================================================================================================================//
 	// SERVICES DISTRIBUTION
 	@FindBy(xpath="//android.view.View[@resource-id='servicesTabIdLink']")
 	public WebElement ServiceTab;
@@ -365,7 +410,115 @@ public class JobPage extends BaseClass {
 	@FindBy(xpath="//*[@text='N']")
 	public WebElement Bonded;
 	
+	
+//Service Drop Terminal
+	
+	@FindBy(xpath="//android.widget.Button[@text='Drop Terminal']")
+	public WebElement ServiceDropTerminal;
+	
+	@FindBy(xpath="//*[@resource-id='dropTerminalAcc-content']/android.widget.GridView[@index=1]/android.view.View[@index=0]/android.view.View[@index=1]")
+	public WebElement ServiceDropTerminalName;
+	
+	@FindBy(xpath="//*[@resource-id='dropTerminalAcc-content']/android.widget.GridView[@index=1]/android.view.View[@index=1]/android.view.View[@index=1]")
+	public WebElement ServiceDropTerminalPort;
+	
+	@FindBy(xpath="//*[@resource-id='dropTerminalAcc-content']/android.widget.GridView[@index=1]/android.view.View[@index=2]/android.view.View[@index=1]")
+	public WebElement ServiceDropTerminalConType;
+	
+	@FindBy(xpath="//*[@resource-id='dropTerminalAcc-content']/android.widget.GridView[@index=1]/android.view.View[@index=3]/android.view.View[@index=1]")
+	public WebElement ServiceRelatedTermAdr;
+	
+	@FindBy(xpath="//*[@resource-id='dropTerminalAcc-content']/android.widget.GridView[@index=1]/android.view.View[@index=4]/android.view.View[@index=1]")
+	public WebElement ServiceDropTerminalFiberStatus;
+	
+	@FindBy(xpath="//*[@resource-id='dropTerminalAcc-content']/android.widget.GridView[@index=1]/android.view.View[@index=5]/android.view.View[@index=1]")
+	public WebElement ServiceDropTerminalFiberAction;
+	
+	@FindBy(xpath="//*[@resource-id='dropTerminalAcc-content']/android.widget.GridView[@index=1]/android.view.View[@index=6]/android.view.View[@index=1]")
+	public WebElement ServiceDropTerminalFiberType;
+	
+	@FindBy(xpath="//*[@resource-id='dropTerminalAcc-content']/android.widget.GridView[@index=1]/android.view.View[@index=7]/android.view.View[@index=1]")
+	public WebElement ServiceDropTerminalFiberLength;
+	
+	@FindBy(xpath="//*[@resource-id='dropTerminalAcc-content']/android.widget.GridView[@index=1]/android.view.View[@index=8]/android.view.View[@index=1]")
+	public WebElement ServiceDropTerminalAdr;
+	
+	@FindBy(xpath="//*[@resource-id='dropTerminalAcc-content']/android.widget.GridView[@index=1]/android.view.View[@index=9]/android.view.View[@index=1]")
+	public WebElement ServiceDropTerminalGPSLatLong;
+	
+//Service ONT Drop
+	
+	@FindBy(xpath="//android.widget.Button[@text='ONT Drop']")
+	public WebElement ServiceONTDrop;
+	
+	@FindBy(xpath="//*[@resource-id='ontDropAcc-content']/android.widget.GridView[@index=1]/android.view.View[@index=0]/android.view.View[@index=1]")
+	public WebElement ServiceONTDropAction;
+	
+	@FindBy(xpath="//*[@resource-id='ontDropAcc-content']/android.widget.GridView[@index=1]/android.view.View[@index=1]/android.view.View[@index=1]")
+	public WebElement ServiceONTDropSerial;
+	
+	@FindBy(xpath="//*[@resource-id='ontDropAcc-content']/android.widget.GridView[@index=1]/android.view.View[@index=2]/android.view.View[@index=1]")
+	public WebElement ServiceONTDropType;
+	
+	@FindBy(xpath="//*[@resource-id='ontDropAcc-content']/android.widget.GridView[@index=1]/android.view.View[@index=3]/android.view.View[@index=1]")
+	public WebElement ServiceONTDropMake;
+	
+	
+	@FindBy(xpath="//*[@resource-id='ontDropAcc-content']/android.widget.GridView[@index=1]/android.view.View[@index=4]/android.view.View[@index=1]")
+	public WebElement ServiceONTDropModel;
+	
+	@FindBy(xpath="//*[@resource-id='ontDropAcc-content']/android.widget.GridView[@index=1]/android.view.View[@index=5]/android.view.View[@index=1]")
+	public WebElement ServiceONTDropRemark;
+	
+	@FindBy(xpath="//*[@resource-id='ontDropAcc-content']/android.widget.GridView[@index=1]/android.view.View[@index=6]/android.view.View[@index=1]")
+	public WebElement ServiceONTDropLocation1;
+	
+	@FindBy(xpath="//*[@resource-id='ontDropAcc-content']/android.widget.GridView[@index=1]/android.view.View[@index=7]/android.view.View[@index=1]")
+	public WebElement ServiceONTDropLocation2;
+	
+	@FindBy(xpath="//*[@resource-id='ontDropAcc-content']/android.widget.GridView[@index=1]/android.view.View[@index=8]/android.view.View[@index=1]")
+	public WebElement ServiceONTDropGPSLatLong;
+	
+//Service Data
+	@FindBy(xpath="//android.widget.Button[@text='Data']")
+	public WebElement ServiceData;
+	
+	@FindBy(xpath="//*[@resource-id='DataLine0Info-content']/android.widget.GridView[@index=1]/android.view.View[@index=0]/android.view.View[@index=1]")
+	public WebElement ServiceDataTNCircuitID;
+	
+	@FindBy(xpath="//*[@resource-id='DataLine0Info-content']/android.widget.GridView[@index=1]/android.view.View[@index=1]/android.view.View[@index=1]")
+	public WebElement ServiceDataFTTPFlag;
+	
+	@FindBy(xpath="//*[@resource-id='DataLine0Info-content']/android.widget.GridView[@index=1]/android.view.View[@index=2]/android.view.View[@index=1]")
+	public WebElement ServiceDataLineActionCode;
+	
+	@FindBy(xpath="//*[@resource-id='DataLine0Info-content']/android.widget.GridView[@index=1]/android.view.View[@index=3]/android.view.View[@index=1]")
+	public WebElement ServiceDataPIC2Code;
+	
+	@FindBy(xpath="//*[@resource-id='DataLine0Info-content']/android.widget.GridView[@index=1]/android.view.View[@index=4]/android.view.View[@index=1]")
+	public WebElement ServiceDataUpStreamBW;
+	
+	@FindBy(xpath="//*[@resource-id='DataLine0Info-content']/android.widget.GridView[@index=1]/android.view.View[@index=5]/android.view.View[@index=1]")
+	public WebElement ServiceDataDownStreamBW;
+	
+	@FindBy(xpath="//*[@resource-id='DataLine0Info-content']/android.widget.GridView[@index=1]/android.view.View[@index=6]/android.view.View[@index=1]")
+	public WebElement ServiceDataStaticDynamicIndicator;
+
+//Service Feature
+	@FindBy(xpath="//android.widget.Button[@text='Features']")
+	public WebElement ServiceFeature;
+	
 	//=========================================================================================================================//
+
+//Equipment ONT
+	@FindBy(xpath="//android.view.View[@resource-id='equipmentTabIdLink']")
+	public WebElement EquipmentTab;
+	
+	@FindBy(xpath="//android.widget.Button[@text='ONT']")
+	public WebElement EquipmentONT;
+	
+	
+	
 	
 	public JobPage(){
 		PageFactory.initElements(driver, this);
