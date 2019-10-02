@@ -3,12 +3,8 @@ package com.CoA.qa.TestCases;
 import java.util.Map;
 import java.util.concurrent.TimeUnit;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.WebElement;
-import org.testng.Assert;
 import org.testng.annotations.AfterMethod;
 import org.testng.annotations.BeforeMethod;
-import org.testng.annotations.BeforeTest;
 import org.testng.annotations.Test;
 
 import com.CoA.qa.Base.BaseClass;
@@ -18,7 +14,7 @@ import com.CoA.qa.Page.LoginPage;
 import com.CoA.qa.Util.ReadTestData;
 import com.CoA.qa.Util.TestUtil;
 
-import io.appium.java_client.android.AndroidDriver;
+import junit.framework.Assert;
 
 public class JobPageTest extends BaseClass{
 LoginPage loginPage;
@@ -27,7 +23,7 @@ TestUtil testUtil;
 JobPage jobPage;
 ReadTestData readtest;
 Map<String, String> testData,testDistribution,CommonServiceTimeStamp,CommonCustomerandContactInformation,CommonPrimaryContact,CommonAlternateContact,
-ServicesDropTerminal,ServicesONTDrop,ServiceData;
+ServicesDropTerminal,ServicesONTDrop,ServiceData,EquipmentONT,EquipmentDirectShippedRouter,CircuitLayoutRecord,LocationA,LocationZ,Attribute;
 //excel sheet Page
 	public  String sheetName = "JobPage";
 	
@@ -55,7 +51,12 @@ public void setup() throws InterruptedException{
 	ServicesDropTerminal=ReadTestData.getJsonData("JsonData", "Services Drop Terminal");
 	ServicesONTDrop=ReadTestData.getJsonData("JsonData", "Services ONT Drop");
 	ServiceData=ReadTestData.getJsonData("JsonData", "Service Data");
-	
+	EquipmentONT=ReadTestData.getJsonData("JsonData", "Equipment ONT");
+	EquipmentDirectShippedRouter=ReadTestData.getJsonData("JsonData", "Equipment Direct Shipped Router");
+	CircuitLayoutRecord =ReadTestData.getJsonData("JsonData", "Circuit Layout Record");
+	LocationA=ReadTestData.getJsonData("JsonData", "Location A");
+	LocationZ=ReadTestData.getJsonData("JsonData", "Location Z");
+	Attribute=ReadTestData.getJsonData("JsonData", "Attribute");
 	
 	   try{
        	if(loginPage.UserID.isDisplayed())
@@ -547,10 +548,190 @@ public void ServiceDistributionDataTest(){
 
 //EQUIPMENT
 
+//@Test
+//public void EquipmentONTDataValidation(){
+//	TestUtil.click(jobPage.EquipmentTab, "");
+//	TestUtil.click(jobPage.EquipmentONT, "");
+//	
+//	Assert.assertEquals(EquipmentONT.get("Action"), jobPage.EquipmentONTActions.getAttribute("text").trim());
+//	System.out.println("Data matched for Action  ::"+jobPage.EquipmentONTActions.getAttribute("text").trim());
+//
+//	Assert.assertEquals(EquipmentONT.get("Quantity"), jobPage.EquipmentONTQuantity.getAttribute("text").trim());
+//	System.out.println("Data matched for Quantity  ::"+jobPage.EquipmentONTQuantity.getAttribute("text").trim());
+//	
+//	Assert.assertEquals(EquipmentONT.get("Type"), jobPage.EquipmentONTType.getAttribute("text").trim());
+//	System.out.println("Data matched for Type  ::"+jobPage.EquipmentONTType.getAttribute("text").trim());
+//	
+//	Assert.assertEquals(EquipmentONT.get("Make"), jobPage.EquipmentONTMake.getAttribute("text").trim());
+//	System.out.println("Data matched for Make  ::"+jobPage.EquipmentONTMake.getAttribute("text").trim());
+//	
+//	Assert.assertEquals(EquipmentONT.get("Model"), jobPage.EquipmentONTModel.getAttribute("text").trim());
+//	System.out.println("Data matched for Model  ::"+jobPage.EquipmentONTModel.getAttribute("text").trim());
+//}
+
+//@Test
+//public void EquipmentRouterDataValidation(){
+//	TestUtil.click(jobPage.EquipmentTab, "");
+//	TestUtil.click(jobPage.EquipmentDirectShipped, "");
+//	TestUtil.click(jobPage.EquipmentRouter, "");
+//	
+//	Assert.assertEquals(EquipmentDirectShippedRouter.get("Make"), jobPage.EquipmentShippedRouterMake.getAttribute("text").trim());
+//	System.out.println("Data matched for Equipment Direct Shipped Router Make  ::"+jobPage.EquipmentShippedRouterMake.getAttribute("text").trim());
+//	
+//	Assert.assertEquals(EquipmentDirectShippedRouter.get("Model"), jobPage.EquipmentShippedRouterModel.getAttribute("text").trim());
+//	System.out.println("Data matched for Equipment Direct Shipped Router Model  ::"+jobPage.EquipmentShippedRouterModel.getAttribute("text").trim());
+//
+//	Assert.assertEquals(EquipmentDirectShippedRouter.get("Serial Number"), jobPage.EquipmentShippedRouterSerialNumber.getAttribute("text").trim());
+//	System.out.println("Data matched for Equipment Direct Shipped Router Serial Number  ::"+jobPage.EquipmentShippedRouterSerialNumber.getAttribute("text").trim());
+//	
+//	Assert.assertEquals(EquipmentDirectShippedRouter.get("Tracking Number"), jobPage.EquipmentShippedRouterTrackingNumber.getAttribute("text").trim());
+//	System.out.println("Data matched for Equipment Direct Shipped Router Tracking Number  ::"+jobPage.EquipmentShippedRouterTrackingNumber.getAttribute("text").trim());
+//	
+//	Assert.assertEquals(EquipmentDirectShippedRouter.get("Shipment Date"), jobPage.EquipmentShippedRouterShipmentDate.getAttribute("text").trim());
+//	System.out.println("Data matched for Equipment Direct Shipped Router Shipment Date  ::"+jobPage.EquipmentShippedRouterShipmentDate.getAttribute("text").trim());
+//
+//}
+
+//@Test //Working
+//public void CircuitLayoutRecordDataValidation(){
+//	TestUtil.click(jobPage.CircuitTab, "");
+//	
+//	Assert.assertEquals(CircuitLayoutRecord.get("Circuit Name"), jobPage.CLRCicuitName.getAttribute("text").trim());
+//	System.out.println("Data matched for CLR Circuit Name  ::"+jobPage.CLRCicuitName.getAttribute("text").trim());
+//	
+//	Assert.assertEquals(CircuitLayoutRecord.get("Type"), jobPage.CLRCicuitType.getAttribute("text").trim());
+//	System.out.println("Data matched for  CLR Circuit Type ::"+jobPage.CLRCicuitType.getAttribute("text").trim());
+//	
+//	Assert.assertEquals(CircuitLayoutRecord.get("Status"), jobPage.CLRCicuitStatus.getAttribute("text").trim());
+//	System.out.println("Data matched for CLR Circuit Status  ::"+jobPage.CLRCicuitStatus.getAttribute("text").trim());
+//	
+//	Assert.assertEquals(CircuitLayoutRecord.get("Version"), jobPage.CLRCicuitVersion.getAttribute("text").trim());
+//	System.out.println("Data matched for CLR Circuit Version  ::"+jobPage.CLRCicuitVersion.getAttribute("text").trim());
+//	
+//	Assert.assertEquals(CircuitLayoutRecord.get("Bandwidth"), jobPage.CLRCicuitBandWidth.getAttribute("text").trim());
+//	System.out.println("Data matched for CLR Circuit Bandwidth  ::"+jobPage.CLRCicuitBandWidth.getAttribute("text").trim());
+//	
+//	Assert.assertEquals(CircuitLayoutRecord.get("Order Source"), jobPage.CLRCicuiteOrderSource.getAttribute("text").trim());
+//	System.out.println("Data matched for CLR Circuit Order Source  ::"+jobPage.CLRCicuiteOrderSource.getAttribute("text").trim());
+//	
+//	Assert.assertEquals(CircuitLayoutRecord.get("Created By System"), jobPage.CLRCreatedBySystem.getAttribute("text").trim());
+//	System.out.println("Data matched for CLR Circuit Created By System  ::"+jobPage.CLRCreatedBySystem.getAttribute("text").trim());
+//}
+
+//@Test //Not Working
+//public void CircuitLocationADataValidation(){
+//	TestUtil.click(jobPage.CircuitTab, "");
+//	TestUtil.click(jobPage.CircuitLocationA, "");
+//	
+//	Assert.assertEquals(LocationA.get("Site Code"), jobPage.CircuitLocationASiteCode.getAttribute("text").trim());
+//	System.out.println("Data macthed for Location A Site code  ::"+jobPage.CircuitLocationASiteCode.getAttribute("text").trim());
+//	
+//	Assert.assertEquals(LocationA.get("Address"), jobPage.CircuitLocationAAddress.getAttribute("text").trim());
+//	System.out.println("Data macthed for Location A Address  ::"+jobPage.CircuitLocationAAddress.getAttribute("text").trim());
+//}
+
+//@Test //working
+//public void CircuitLocationZDataValidation(){
+//	TestUtil.click(jobPage.CircuitTab, "");
+//	TestUtil.click(jobPage.CircuitLocationZ, "");
+//	
+//	Assert.assertEquals(LocationZ.get("Site Code 1"), jobPage.CircuitLocationZSiteCode.getAttribute("text").trim());
+//	System.out.println("Data macthed for Location Z SiteCode  ::"+jobPage.CircuitLocationZSiteCode.getAttribute("text").trim());
+//
+//	Assert.assertEquals(LocationZ.get("Address 1"), jobPage.CircuitLocationZAddress.getAttribute("text").trim());
+//	System.out.println("Data macthed for Location Z Address  ::"+jobPage.CircuitLocationZAddress.getAttribute("text").trim());
+//}
+
 @Test
-public void EquipmentONTValidation(){
-	TestUtil.click(jobPage.EquipmentTab, "");
-	TestUtil.click(jobPage.EquipmentONT, "");
+public void CircuitAttributeDataValidation(){
+	TestUtil.click(jobPage.CircuitTab, "");
+	TestUtil.click(jobPage.Attribute, "");
+	TestUtil.scrollDown();
+	
+	Assert.assertEquals(Attribute.get("ORDER_NUMBER"), jobPage.CircuitAttributeOrderNumber.getAttribute("text").trim());
+	System.out.println("Data macthed for Attribute Order Number  ::"+jobPage.CircuitAttributeOrderNumber.getAttribute("text").trim());
+	
+	Assert.assertEquals(Attribute.get("ORDER_SOURCE"), jobPage.CircuitAttributeOrderSource.getAttribute("text").trim());
+	System.out.println("Data macthed for Attribute Order Source  ::"+jobPage.CircuitAttributeOrderSource.getAttribute("text").trim());
+	
+	Assert.assertEquals(Attribute.get("PATH_ID"), jobPage.CircuitAttributPathID.getAttribute("text").trim());
+	System.out.println("Data macthed for Attribute Path ID  ::"+jobPage.CircuitAttributPathID.getAttribute("text").trim());
+	
+	Assert.assertEquals(Attribute.get("CUSTOMER_TAG"), jobPage.CircuitAttributeCustomerTag.getAttribute("text").trim());
+	System.out.println("Data macthed for Attribute Customer Tag  ::"+jobPage.CircuitAttributeCustomerTag.getAttribute("text").trim());
+	
+	Assert.assertEquals(Attribute.get("DOWNLOAD_BANDWIDTH"), jobPage.CircuitAttributeDownloadBandWidth.getAttribute("text").trim());
+	System.out.println("Data macthed for Attribute Download BandWidth  ::"+jobPage.CircuitAttributeDownloadBandWidth.getAttribute("text").trim());
+	
+	Assert.assertEquals(Attribute.get("EMSIPADDRESS"), jobPage.CircuitAttributeEmsipaddress.getAttribute("text").trim());
+	System.out.println("Data macthed for Attribute EMSIPADDRESS  ::"+jobPage.CircuitAttributeEmsipaddress.getAttribute("text").trim());
+	
+	Assert.assertEquals(Attribute.get("FIBER_JACK_ELIGIBLE"), jobPage.CircuitAttributeFiberJackEligible.getAttribute("text").trim());
+	System.out.println("Data macthed for Attribute Fiber Jack Eligible  ::"+jobPage.CircuitAttributeFiberJackEligible.getAttribute("text").trim());
+	
+	Assert.assertEquals(Attribute.get("GCHID"), jobPage.CircuitAttributeGchid.getAttribute("text").trim());
+	System.out.println("Data macthed for Attribute GCHID  ::"+jobPage.CircuitAttributeGchid.getAttribute("text").trim());
+	
+	Assert.assertEquals(Attribute.get("LOB"), jobPage.CircuitAttributeLob.getAttribute("text").trim());
+	System.out.println("Data macthed for Attribute LOB  ::"+jobPage.CircuitAttributeLob.getAttribute("text").trim());
+	
+	Assert.assertEquals(Attribute.get("MASTER_ORDER_NUMBER"), jobPage.CircuitAttributeMasterOrderNumber.getAttribute("text").trim());
+	System.out.println("Data macthed for Attribute Order Number  ::"+jobPage.CircuitAttributeMasterOrderNumber.getAttribute("text").trim());
+	
+	Assert.assertEquals(Attribute.get("ONETALK_FLAG"), jobPage.CircuitAttributeOneTalkFlag.getAttribute("text").trim());
+	System.out.println("Data macthed for Attribute Master Order Number  ::"+jobPage.CircuitAttributeOneTalkFlag.getAttribute("text").trim());
+	
+	Assert.assertEquals(Attribute.get("ONE_TALK"), jobPage.CircuitAttributeOneTalk.getAttribute("text").trim());
+	System.out.println("Data macthed for Attribute One Talk Flag  ::"+jobPage.CircuitAttributeOneTalk.getAttribute("text").trim());
+	
+	Assert.assertEquals(Attribute.get("PONID"), jobPage.CircuitAttributePoniid.getAttribute("text").trim());
+	System.out.println("Data macthed for Attribute One Talk  ::"+jobPage.CircuitAttributePoniid.getAttribute("text").trim());
+	
+	Assert.assertEquals(Attribute.get("PONSYSTEMID"), jobPage.CircuitAttributePonsystemID.getAttribute("text").trim());
+	System.out.println("Data macthed for Attribute PonSystem  ::"+jobPage.CircuitAttributePonsystemID.getAttribute("text").trim());
+	
+	Assert.assertEquals(Attribute.get("POWER_ADAPTOR_INDICATOR"), jobPage.CircuitAttributePowerAdaptorIndicator.getAttribute("text").trim());
+	System.out.println("Data macthed for Attribute power adaptor indicator  ::"+jobPage.CircuitAttributePowerAdaptorIndicator.getAttribute("text").trim());
+	
+	Assert.assertEquals(Attribute.get("SERVICE_TAG"), jobPage.CircuitAttributeServiceTag.getAttribute("text").trim());
+	System.out.println("Data macthed for Attribute Service Tag  ::"+jobPage.CircuitAttributeServiceTag.getAttribute("text").trim());
+	
+	Assert.assertEquals(Attribute.get("STATIC_DYNAMIC_FLAG"), jobPage.CircuitAttributeStaticDynamicFlag.getAttribute("text").trim());
+	System.out.println("Data macthed for Attribute Static Dynamic Flag  ::"+jobPage.CircuitAttributeStaticDynamicFlag.getAttribute("text").trim());
+	
+	Assert.assertEquals(Attribute.get("UPLOAD_BANDWIDTH"), jobPage.CircuitAttributeUploadBandWidth.getAttribute("text").trim());
+	System.out.println("Data macthed for Attribute Upload Band Width  ::"+jobPage.CircuitAttributeUploadBandWidth.getAttribute("text").trim());
+	
+	Assert.assertEquals(Attribute.get("VISIONACCOUNTID"), jobPage.CircuitAttributeVisionAccountID.getAttribute("text").trim());
+	System.out.println("Data macthed for Attribute Vision Account ID  ::"+jobPage.CircuitAttributeVisionAccountID.getAttribute("text").trim());
+	
+	Assert.assertEquals(Attribute.get("WIRE_CENTER"), jobPage.CircuitAttributeWireCenter.getAttribute("text").trim());
+	System.out.println("Data macthed for Attribute Wire center  ::"+jobPage.CircuitAttributeWireCenter.getAttribute("text").trim());
+	
+	
+	Assert.assertEquals(Attribute.get("EMS_IP_ADDRESS"), jobPage.CircuitAttributeEMSIPADDRESS.getAttribute("text").trim());
+	System.out.println("Data macthed for Attribute EMS IP Address  ::"+jobPage.CircuitAttributeEMSIPADDRESS.getAttribute("text").trim());
+	
+	Assert.assertEquals(Attribute.get("EMSIPADDRESS1"), jobPage.CircuitAttributeEMSIPADDRESS1.getAttribute("text").trim());
+	System.out.println("Data macthed for Attribute EMS IP ADDRESS 1  ::"+jobPage.CircuitAttributeEMSIPADDRESS1.getAttribute("text").trim());
+	
+	Assert.assertEquals(Attribute.get("FIBER_JACK_ELIGIBLE1"), jobPage.CircuitAttributeFiberJackEligible1.getAttribute("text").trim());
+	System.out.println("Data macthed for Attribute Fiber Jack Eligible 1  ::"+jobPage.CircuitAttributeFiberJackEligible1.getAttribute("text").trim());
+	
+	Assert.assertEquals(Attribute.get("PON_ID"), jobPage.CircuitAttributePONID.getAttribute("text").trim());
+	System.out.println("Data macthed for Attribute PON ID  ::"+jobPage.CircuitAttributePONID.getAttribute("text").trim());
+	
+	Assert.assertEquals(Attribute.get("PONID1"), jobPage.CircuitAttributePONID1.getAttribute("text").trim());
+	System.out.println("Data macthed for Attribute PON ID 1  ::"+jobPage.CircuitAttributePONID1.getAttribute("text").trim());
+	
+	Assert.assertEquals(Attribute.get("PON_SYSTEM_ID"), jobPage.CircuitAttributePonSystemID.getAttribute("text").trim());
+	System.out.println("Data macthed for Attribute PON System ID  ::"+jobPage.CircuitAttributePonSystemID.getAttribute("text").trim());
+	
+	Assert.assertEquals(Attribute.get("PONSYSTEMID1"), jobPage.CircuitAttributePonSystemID1.getAttribute("text").trim());
+	System.out.println("Data macthed for Attribute PON System ID 1  ::"+jobPage.CircuitAttributePonSystemID1.getAttribute("text").trim());
+	
+	Assert.assertEquals(Attribute.get("POWER_ADAPTOR_INDICATOR1"), jobPage.CircuitAttributePowerAdaptorIndicator1.getAttribute("text").trim());
+	System.out.println("Data macthed for Attribute Power Adaptor Indicator 1  ::"+jobPage.CircuitAttributePowerAdaptorIndicator1.getAttribute("text").trim());
 }
 
 

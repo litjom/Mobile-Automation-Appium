@@ -137,7 +137,124 @@
 "UpStream B/W":"1000",
 "DownStream B/W":"1000",
 "State Dynamic Indicator":"D"
+},
+
+"Equipment ONT":{
+"Action":"Install",
+"Quantity":"1",
+"Type":"SFU",
+"Make":"CXNK",
+"Model":"812NG-V"
+},
+
+"Equipment Direct Shipped Router":{
+"Make":"SCCS",
+"Model":"VERSA-110",
+"Serial Number":"427783217827",
+"Tracking Number":"ZZN949804",
+"Shipment Date":"06/26/2019 00:00:00",
+"Delivery Date":""
+},
+
+"Circuit Layout Record":{
+"Circuit Name":"30/LCXA/804762 /VZFL",
+"Type":"LCI",
+"Status":"PENDING DESIGN",
+"Version":"1",
+"Bandwidth":"1GBPS",
+"Order Source":"BOS",
+"Created By System":"NAUTILUS"
+},
+
+"Location A":{
+"Site Code":"TAMPAFL07",
+"Address":"Tampa FL 33619"
+
+
+},
+
+"Location Z":{
+"Site Code 1":"1700 E 9TH AVE,TAMPA,FL,33605",
+"Address 1":"TAMPA FL 33605"
+
+},
+
+"Attribute":{
+"ORDER_NUMBER":"ICOG916615790",
+"ORDER_SOURCE":"BOS",
+"PATH_ID":"72689813",
+"CUSTOMER_TAG":"50",
+"DOWNLOAD_BANDWIDTH":"1000",
+"EMSCLLI":"",
+"EMSIPADDRESS":"128.209.19.81",
+"FIBER_JACK_ELIGIBLE":"NO",
+"GCHID":"575813942",
+"LOB":"BOS-LCI",
+"MASTER_ORDER_NUMBER":"FLII6615790",
+"ONETALK_FLAG":"N",
+"ONE_TALK":"N",
+"PONID":"006AC210",
+"PONSYSTEMID":"01A01",
+"POWER_ADAPTOR_INDICATOR":"Not-Compatible",
+"SERVICE_TAG":"513",
+"STATIC_DYNAMIC_FLAG":"N",
+"UPLOAD_BANDWIDTH":"1000",
+"VISIONACCOUNTID":"2655",
+"WIRE_CENTER":"813000",
+"EMS_CLLI":"",
+"EMS_IP_ADDRESS":"128.209.19.81",
+"EMSIPADDRESS1":"128.209.19.81",
+"FIBER_JACK_ELIGIBLE1":"NO",
+"PON_ID":"006AC210",
+"PONID1":"006AC210",
+"PON_SYSTEM_ID":"01A01",
+"PONSYSTEMID1":"01A01",
+"POWER_ADAPTOR_INDICATOR1":"Not-Compatible"
+},
+
+"Port -1":{
+"SiteCode":"TAMAFL07",
+"NEIdentifier":"TAMAFL07-956491",
+"NeName":"OTLC1319",
+"NeType":"NGPON2 CHASSIS",
+"NESubType":"LGHTWV",
+"NeStatus":"AVAILABLE",
+"RackName":"Rack26",
+"RackID":"100076435",
+"RackCreatedBySys":"NAUTILUS",
+"ShelfName":"OLTLCI319",
+"ShelfNumber":"3",
+"ShelfID":"100076447",
+"Shelf_TID":"TAMAFL07-956491",
+"ShelfModel":"E9-2 CHASSIS",
+"ShelfFuncitonalType":"LGHTWV",
+"ShelfVendor":"ERICSSON",
+"ShelfCreatedBySys":"NAUTILUS",
+"SlotName":"1",
+"SlotNumber":"1",
+"SlotCreatedBySys":"NAUTILUS",
+"SubSlotName":"PON 1",
+"SubSlotNumber":"xp1",
+"SubSlotCreatedBySys":"NAUTILUS",
+"Card":"638261",
+"CardModel":"NG1601",
+"CardPartNumber":"100-04494",
+"SubCardModel":"XFP NG2 OLT 10/10 GBPS N1 1597.19NM",
+"SubCardPartNumber":"100-04479",
+"CardVendor":"ERICSSON",
+"CardCreatedBySys":"NAUTILUS",
+"PortID":"7641146",
+"PortName":"PON",
+"PortNumber":"1",
+"PortBW":"10GE",
+"Port_AID":"3/1/xp1",
+"PortCreatedBySys":"NAUTILUS",
+"Address":"602 S FALKENBURG RD & HORACE AVE Tampa FL 33619"
+
+
 }
+
+
 
 
 }

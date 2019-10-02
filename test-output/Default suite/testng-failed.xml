@@ -6,7 +6,7 @@
       <class name="com.CoA.qa.TestCases.JobPageTest">
         <methods>
           <include name="setup"/>
-          <include name="Equipment"/>
+          <include name="CircuitAttributeDataValidation"/>
         </methods>
       </class> <!-- com.CoA.qa.TestCases.JobPageTest -->
     </classes>

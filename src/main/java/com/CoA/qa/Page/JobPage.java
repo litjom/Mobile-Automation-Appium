@@ -517,7 +517,192 @@ public class JobPage extends BaseClass {
 	@FindBy(xpath="//android.widget.Button[@text='ONT']")
 	public WebElement EquipmentONT;
 	
+	@FindBy(xpath="//*[@resource-id='ontHeaderInfo-content']/android.widget.GridView[@index=1]/android.view.View[@index=0]/android.view.View[@index=1]")
+	public WebElement EquipmentONTActions;
 	
+	@FindBy(xpath="//*[@resource-id='ontHeaderInfo-content']/android.widget.GridView[@index=1]/android.view.View[@index=1]/android.view.View[@index=1]")
+	public WebElement EquipmentONTQuantity;
+	
+	@FindBy(xpath="//*[@resource-id='ontHeaderInfo-content']/android.widget.GridView[@index=1]/android.view.View[@index=2]/android.view.View[@index=1]")
+	public WebElement EquipmentONTType;
+	
+	@FindBy(xpath="//*[@resource-id='ontHeaderInfo-content']/android.widget.GridView[@index=1]/android.view.View[@index=3]/android.view.View[@index=1]")
+	public WebElement EquipmentONTMake;
+	
+	@FindBy(xpath="//*[@resource-id='ontHeaderInfo-content']/android.widget.GridView[@index=1]/android.view.View[@index=4]/android.view.View[@index=1]")
+	public WebElement EquipmentONTModel;
+	
+//Equipment Direct Shipped Router
+	@FindBy(xpath="//android.widget.Button[@text='Direct Shipped']")
+	public WebElement EquipmentDirectShipped;
+	
+	@FindBy(xpath="//android.widget.Button[@text='Router [ISSUED]']")
+	public WebElement EquipmentRouter;
+	
+	@FindBy(xpath="//*[@resource-id='ONT_uCPE0-content']/android.widget.GridView[@index=1]/android.view.View[@index=0]/android.view.View[@index=1]")
+	public WebElement EquipmentShippedRouterMake;
+	
+	@FindBy(xpath="//*[@resource-id='ONT_uCPE0-content']/android.widget.GridView[@index=1]/android.view.View[@index=1]/android.view.View[@index=1]")
+	public WebElement EquipmentShippedRouterModel;
+	
+	@FindBy(xpath="//*[@resource-id='ONT_uCPE0-content']/android.widget.GridView[@index=1]/android.view.View[@index=2]/android.view.View[@index=1]")
+	public WebElement EquipmentShippedRouterSerialNumber;
+	
+	@FindBy(xpath="//*[@resource-id='ONT_uCPE0-content']/android.widget.GridView[@index=1]/android.view.View[@index=3]/android.view.View[@index=1]")
+	public WebElement EquipmentShippedRouterTrackingNumber;
+	
+	@FindBy(xpath="//*[@resource-id='ONT_uCPE0-content']/android.widget.GridView[@index=1]/android.view.View[@index=4]/android.view.View[@index=1]")
+	public WebElement EquipmentShippedRouterShipmentDate;
+	
+	@FindBy(xpath="//*[@resource-id='ONT_uCPE0-content']/android.widget.GridView[@index=1]/android.view.View[@index=5]/android.view.View[@index=1]")
+	public WebElement EquipmentShippedRouterDeliveryDate;
+	
+//=====================================================================================================================================================//
+	
+//Cicruit Tab
+	@FindBy(xpath="//android.view.View[@resource-id='circuitTabIdLink']")
+	public WebElement CircuitTab;
+	
+	@FindBy(xpath="//*[@resource-id='LciCLRInfo-content']/android.widget.GridView[@index=1]/android.view.View[@index=0]/android.view.View[@index=1]")
+	public WebElement CLRCicuitName;
+	
+	@FindBy(xpath="//*[@resource-id='LciCLRInfo-content']/android.widget.GridView[@index=1]/android.view.View[@index=1]/android.view.View[@index=1]")
+	public WebElement CLRCicuitType;
+	
+	@FindBy(xpath="//*[@resource-id='LciCLRInfo-content']/android.widget.GridView[@index=1]/android.view.View[@index=2]/android.view.View[@index=1]")
+	public WebElement CLRCicuitStatus;
+	
+	@FindBy(xpath="//*[@resource-id='LciCLRInfo-content']/android.widget.GridView[@index=1]/android.view.View[@index=3]/android.view.View[@index=1]")
+	public WebElement CLRCicuitVersion;
+	
+	@FindBy(xpath="//*[@resource-id='LciCLRInfo-content']/android.widget.GridView[@index=1]/android.view.View[@index=4]/android.view.View[@index=1]")
+	public WebElement CLRCicuitBandWidth;
+	
+	@FindBy(xpath="//*[@resource-id='LciCLRInfo-content']/android.widget.GridView[@index=1]/android.view.View[@index=5]/android.view.View[@index=1]")
+	public WebElement CLRCicuiteOrderSource;
+	
+	@FindBy(xpath="//*[@resource-id='LciCLRInfo-content']/android.widget.GridView[@index=1]/android.view.View[@index=6]/android.view.View[@index=1]")
+	public WebElement CLRCreatedBySystem;
+	
+	//Circuit Location A
+	
+	@FindBy(xpath="//android.widget.Button[@text='Location - A']")
+	public WebElement CircuitLocationA;
+	
+	@FindBy(xpath="//*[@resource-id='locationAInfo-content']/android.widget.GridView[@index=1]/android.view.View[@index=0]/android.view.View[@index=1]")
+	public WebElement CircuitLocationASiteCode;
+	
+	@FindBy(xpath="//*[@resource-id='locationAInfo-content']/android.widget.GridView[@index=1]/android.view.View[@index=1]/android.view.View[@index=1]")
+	public WebElement CircuitLocationAAddress;
+	
+	
+	//Circuit Location Z
+	@FindBy(xpath="//android.widget.Button[@text='Location - Z']")
+	public WebElement CircuitLocationZ;
+	
+	@FindBy(xpath="//*[@resource-id='locationZInfo-content']/android.widget.GridView[@index=1]/android.view.View[@index=0]/android.view.View[@index=1]")
+	public WebElement CircuitLocationZSiteCode;
+	
+	@FindBy(xpath="//*[@resource-id='locationZInfo-content']/android.widget.GridView[@index=1]/android.view.View[@index=1]/android.view.View[@index=1]")
+	public WebElement CircuitLocationZAddress;
+	
+	
+	//Circuit Attribute
+	@FindBy(xpath="//android.widget.Button[@text='Attribute']")
+	public WebElement Attribute;
+	
+	@FindBy(xpath="//*[@resource-id='attributeInfo-content']/android.widget.GridView[@index=1]/android.view.View[@index=0]/android.view.View[@index=1]")
+	public WebElement CircuitAttributeOrderNumber;
+	
+	@FindBy(xpath="//*[@resource-id='attributeInfo-content']/android.widget.GridView[@index=1]/android.view.View[@index=1]/android.view.View[@index=1]")
+	public WebElement CircuitAttributeOrderSource;
+	
+	@FindBy(xpath="//*[@resource-id='attributeInfo-content']/android.widget.GridView[@index=1]/android.view.View[@index=2]/android.view.View[@index=1]")
+	public WebElement CircuitAttributPathID;
+	
+	@FindBy(xpath="//*[@resource-id='attributeInfo-content']/android.widget.GridView[@index=1]/android.view.View[@index=3]/android.view.View[@index=1]")
+	public WebElement CircuitAttributeCustomerTag;
+	
+	@FindBy(xpath="//*[@resource-id='attributeInfo-content']/android.widget.GridView[@index=1]/android.view.View[@index=4]/android.view.View[@index=1]")
+	public WebElement CircuitAttributeDownloadBandWidth;
+	
+	@FindBy(xpath="//*[@resource-id='attributeInfo-content']/android.widget.GridView[@index=1]/android.view.View[@index=5]/android.view.View[@index=1]")
+	public WebElement CircuitAttributeEmsclli;
+	
+	@FindBy(xpath="//*[@resource-id='attributeInfo-content']/android.widget.GridView[@index=1]/android.view.View[@index=6]/android.view.View[@index=1]")
+	public WebElement CircuitAttributeEmsipaddress;
+	
+	@FindBy(xpath="//*[@resource-id='attributeInfo-content']/android.widget.GridView[@index=1]/android.view.View[@index=7]/android.view.View[@index=1]")
+	public WebElement CircuitAttributeFiberJackEligible;
+	
+	@FindBy(xpath="//*[@resource-id='attributeInfo-content']/android.widget.GridView[@index=1]/android.view.View[@index=8]/android.view.View[@index=1]")
+	public WebElement CircuitAttributeGchid;
+	
+	@FindBy(xpath="//*[@resource-id='attributeInfo-content']/android.widget.GridView[@index=1]/android.view.View[@index=9]/android.view.View[@index=1]")
+	public WebElement CircuitAttributeLob;
+	
+	@FindBy(xpath="//*[@resource-id='attributeInfo-content']/android.widget.GridView[@index=1]/android.view.View[@index=10]/android.view.View[@index=1]")
+	public WebElement CircuitAttributeMasterOrderNumber;
+	
+	@FindBy(xpath="//*[@resource-id='attributeInfo-content']/android.widget.GridView[@index=1]/android.view.View[@index=11]/android.view.View[@index=1]")
+	public WebElement CircuitAttributeOneTalkFlag;
+	
+	@FindBy(xpath="//*[@resource-id='attributeInfo-content']/android.widget.GridView[@index=1]/android.view.View[@index=12]/android.view.View[@index=1]")
+	public WebElement CircuitAttributeOneTalk;
+	
+	@FindBy(xpath="//*[@resource-id='attributeInfo-content']/android.widget.GridView[@index=1]/android.view.View[@index=13]/android.view.View[@index=1]")
+	public WebElement CircuitAttributePoniid;
+	
+	@FindBy(xpath="//*[@resource-id='attributeInfo-content']/android.widget.GridView[@index=1]/android.view.View[@index=14]/android.view.View[@index=1]")
+	public WebElement CircuitAttributePonsystemID;
+	
+	@FindBy(xpath="//*[@resource-id='attributeInfo-content']/android.widget.GridView[@index=1]/android.view.View[@index=15]/android.view.View[@index=1]")
+	public WebElement CircuitAttributePowerAdaptorIndicator;
+	
+	@FindBy(xpath="//*[@resource-id='attributeInfo-content']/android.widget.GridView[@index=1]/android.view.View[@index=16]/android.view.View[@index=1]")
+	public WebElement CircuitAttributeServiceTag;
+	
+	@FindBy(xpath="//*[@resource-id='attributeInfo-content']/android.widget.GridView[@index=1]/android.view.View[@index=17]/android.view.View[@index=1]")
+	public WebElement CircuitAttributeStaticDynamicFlag;
+	
+	@FindBy(xpath="//*[@resource-id='attributeInfo-content']/android.widget.GridView[@index=1]/android.view.View[@index=18]/android.view.View[@index=1]")
+	public WebElement CircuitAttributeUploadBandWidth;
+	
+	@FindBy(xpath="//*[@resource-id='attributeInfo-content']/android.widget.GridView[@index=1]/android.view.View[@index=19]/android.view.View[@index=1]")
+	public WebElement CircuitAttributeVisionAccountID;
+	
+	@FindBy(xpath="//*[@resource-id='attributeInfo-content']/android.widget.GridView[@index=1]/android.view.View[@index=20]/android.view.View[@index=1]")
+	public WebElement CircuitAttributeWireCenter;
+	
+	@FindBy(xpath="//*[@resource-id='attributeInfo-content']/android.widget.GridView[@index=1]/android.view.View[@index=21]/android.view.View[@index=1]")
+	public WebElement CircuitAttributeEmsCLLI;
+	
+	@FindBy(xpath="//*[@resource-id='attributeInfo-content']/android.widget.GridView[@index=1]/android.view.View[@index=22]/android.view.View[@index=1]")
+	public WebElement CircuitAttributeEMSCLLI;
+	
+	@FindBy(xpath="//*[@resource-id='attributeInfo-content']/android.widget.GridView[@index=1]/android.view.View[@index=23]/android.view.View[@index=1]")
+	public WebElement CircuitAttributeEMSIPADDRESS;
+	
+	@FindBy(xpath="//*[@resource-id='attributeInfo-content']/android.widget.GridView[@index=1]/android.view.View[@index=24]/android.view.View[@index=1]")
+	public WebElement CircuitAttributeEMSIPADDRESS1;
+	
+	@FindBy(xpath="//*[@resource-id='attributeInfo-content']/android.widget.GridView[@index=1]/android.view.View[@index=25]/android.view.View[@index=1]")
+	public WebElement CircuitAttributeFiberJackEligible1;
+	
+	@FindBy(xpath="//*[@resource-id='attributeInfo-content']/android.widget.GridView[@index=1]/android.view.View[@index=26]/android.view.View[@index=1]")
+	public WebElement CircuitAttributePONID;
+	
+	@FindBy(xpath="//*[@resource-id='attributeInfo-content']/android.widget.GridView[@index=1]/android.view.View[@index=27]/android.view.View[@index=1]")
+	public WebElement CircuitAttributePONID1;
+	
+	@FindBy(xpath="//*[@resource-id='attributeInfo-content']/android.widget.GridView[@index=1]/android.view.View[@index=28]/android.view.View[@index=1]")
+	public WebElement CircuitAttributePonSystemID;
+	
+	@FindBy(xpath="//*[@resource-id='attributeInfo-content']/android.widget.GridView[@index=1]/android.view.View[@index=29]/android.view.View[@index=1]")
+	public WebElement CircuitAttributePonSystemID1;
+	
+	@FindBy(xpath="//*[@resource-id='attributeInfo-content']/android.widget.GridView[@index=1]/android.view.View[@index=30]/android.view.View[@index=1]")
+	public WebElement CircuitAttributePowerAdaptorIndicator1;
 	
 	
 	public JobPage(){

@@ -2,20 +2,20 @@
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="93434" started-at="2019-09-24T20:24:03Z" finished-at="2019-09-24T20:25:36Z">
+  <suite name="Default suite" duration-ms="1437976" started-at="2019-10-02T13:51:34Z" finished-at="2019-10-02T14:15:32Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="93434" started-at="2019-09-24T20:24:03Z" finished-at="2019-09-24T20:25:36Z">
+    <test name="Default test" duration-ms="1437976" started-at="2019-10-02T13:51:34Z" finished-at="2019-10-02T14:15:32Z">
       <class name="com.CoA.qa.TestCases.JobPageTest">
-        <test-method status="PASS" signature="setup()[pri:0, instance:com.CoA.qa.TestCases.JobPageTest@6e1ec318]" name="setup" is-config="true" duration-ms="74609" started-at="2019-09-24T16:24:03Z" finished-at="2019-09-24T16:25:18Z">
+        <test-method status="PASS" signature="setup()[pri:0, instance:com.CoA.qa.TestCases.JobPageTest@6e1ec318]" name="setup" is-config="true" duration-ms="83739" started-at="2019-10-02T09:51:34Z" finished-at="2019-10-02T09:52:58Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setup -->
-        <test-method status="PASS" signature="Equipment()[pri:0, instance:com.CoA.qa.TestCases.JobPageTest@6e1ec318]" name="Equipment" duration-ms="17915" started-at="2019-09-24T16:25:18Z" finished-at="2019-09-24T16:25:35Z">
+        <test-method status="PASS" signature="CircuitAttributeDataValidation()[pri:0, instance:com.CoA.qa.TestCases.JobPageTest@6e1ec318]" name="CircuitAttributeDataValidation" duration-ms="1353403" started-at="2019-10-02T09:52:58Z" finished-at="2019-10-02T10:15:31Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- Equipment -->
-        <test-method status="PASS" signature="teardown()[pri:0, instance:com.CoA.qa.TestCases.JobPageTest@6e1ec318]" name="teardown" is-config="true" duration-ms="898" started-at="2019-09-24T16:25:35Z" finished-at="2019-09-24T16:25:36Z">
+        </test-method> <!-- CircuitAttributeDataValidation -->
+        <test-method status="PASS" signature="teardown()[pri:0, instance:com.CoA.qa.TestCases.JobPageTest@6e1ec318]" name="teardown" is-config="true" duration-ms="818" started-at="2019-10-02T10:15:31Z" finished-at="2019-10-02T10:15:32Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- teardown -->
