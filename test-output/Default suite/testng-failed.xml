@@ -1,14 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
-<suite name="Failed suite [Default suite]">
+<suite guice-stage="DEVELOPMENT" name="Failed suite [Default suite]">
   <test name="Default test(failed)">
     <classes>
-      <class name="com.CoA.qa.TestCases.JobPageTest">
+      <class name="com.IVAPP.qa.OffShoreTestCases.LoginPageTest">
         <methods>
-          <include name="setup"/>
-          <include name="CircuitAttributeDataValidation"/>
+          <include name="setUp"/>
+          <include name="teardown"/>
+          <include name="sampleTest"/>
         </methods>
-      </class> <!-- com.CoA.qa.TestCases.JobPageTest -->
+      </class> <!-- com.IVAPP.qa.OffShoreTestCases.LoginPageTest -->
     </classes>
   </test> <!-- Default test(failed) -->
 </suite> <!-- Failed suite [Default suite] -->

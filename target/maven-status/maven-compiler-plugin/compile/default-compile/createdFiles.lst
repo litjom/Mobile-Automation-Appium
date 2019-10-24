@@ -1,0 +1,8 @@
+com\IVAPP\qa\Base\BaseClass.class
+com\IVAPP\qa\OffShorePage\OrderQuery.class
+com\IVAPP\qa\OffShorePage\Sample.class
+com\IVAPP\qa\TestUtil\ReadTestData.class
+com\IVAPP\qa\TestUtil\TestUtil.class
+com\IVAPP\qa\OffShorePage\HomePage.class
+com\IVAPP\qa\OffShorePage\LoginPage.class
+com\IVAPP\qa\TestUtil\CustomListener.class

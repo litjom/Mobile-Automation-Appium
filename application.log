@@ -1,0 +1,9 @@
+2019-10-23 15:08:18,728  INFO [main] LoginPageTest:43 - ****************************** Starting Test Case Execution ******************************
+2019-10-23 15:08:26,068  INFO [main] LoginPageTest:45 - Launching browser IE
+2019-10-23 15:08:26,732  INFO [main] LoginPageTest:62 - ****************************** Starting Test Case ******************************
+2019-10-23 15:08:26,733  INFO [main] LoginPageTest:63 - ****************************** Login Test ******************************
+2019-10-23 15:08:31,840  INFO [main] LoginPageTest:66 - ****************************** Getting Data from Congfig File ******************************
+2019-10-23 15:09:16,817  INFO [main] LoginPageTest:74 - ****************************** Verified Title ******************************
+2019-10-23 15:09:16,818  INFO [main] LoginPageTest:76 - ****************************** Ending Test Case ******************************
+2019-10-23 15:09:16,819  INFO [main] LoginPageTest:77 - ****************************** Login Test ******************************
+2019-10-23 15:09:17,758  INFO [main] LoginPageTest:89 - ****************************** Browser is closed ******************************
