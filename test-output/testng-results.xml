@@ -2,24 +2,24 @@
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="59180" started-at="2019-10-23T19:08:18Z" finished-at="2019-10-23T19:09:17Z">
+  <suite name="Default suite" duration-ms="73413" started-at="2019-10-25T20:47:10Z" finished-at="2019-10-25T20:48:23Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="59180" started-at="2019-10-23T19:08:18Z" finished-at="2019-10-23T19:09:17Z">
-      <class name="com.IVAPP.qa.OffShoreTestCases.LoginPageTest">
-        <test-method status="PASS" signature="setUp()[pri:0, instance:com.IVAPP.qa.OffShoreTestCases.LoginPageTest@52c8295b]" name="setUp" is-config="true" duration-ms="7899" started-at="2019-10-23T15:08:18Z" finished-at="2019-10-23T15:08:26Z">
+    <test name="Default test" duration-ms="73413" started-at="2019-10-25T20:47:10Z" finished-at="2019-10-25T20:48:23Z">
+      <class name="com.CoA.qa.TestCases.LoginPageTest">
+        <test-method status="PASS" signature="setUp()[pri:0, instance:com.CoA.qa.TestCases.LoginPageTest@31500940]" name="setUp" is-config="true" duration-ms="9598" started-at="2019-10-25T16:47:10Z" finished-at="2019-10-25T16:47:20Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- setUp -->
-        <test-method status="PASS" signature="LoginTest()[pri:0, instance:com.IVAPP.qa.OffShoreTestCases.LoginPageTest@52c8295b]" name="LoginTest" duration-ms="50240" started-at="2019-10-23T15:08:26Z" description="Logging in with valid credentials" finished-at="2019-10-23T15:09:16Z">
+        <test-method status="PASS" signature="loginTest()[pri:0, instance:com.CoA.qa.TestCases.LoginPageTest@31500940]" name="loginTest" duration-ms="63096" started-at="2019-10-25T16:47:20Z" description="Login in with valid credetials Test" finished-at="2019-10-25T16:48:23Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- LoginTest -->
-        <test-method status="PASS" signature="teardown()[pri:0, instance:com.IVAPP.qa.OffShoreTestCases.LoginPageTest@52c8295b]" name="teardown" is-config="true" duration-ms="873" started-at="2019-10-23T15:09:16Z" finished-at="2019-10-23T15:09:17Z">
+        </test-method> <!-- loginTest -->
+        <test-method status="PASS" signature="tearDown()[pri:0, instance:com.CoA.qa.TestCases.LoginPageTest@31500940]" name="tearDown" is-config="true" duration-ms="670" started-at="2019-10-25T16:48:23Z" finished-at="2019-10-25T16:48:23Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- teardown -->
-      </class> <!-- com.IVAPP.qa.OffShoreTestCases.LoginPageTest -->
+        </test-method> <!-- tearDown -->
+      </class> <!-- com.CoA.qa.TestCases.LoginPageTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
